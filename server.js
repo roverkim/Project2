@@ -1,45 +1,46 @@
-// // Use the environment variable or use a given port
-// const PORT = process.env.PORT || 8080;
-// 
-// // Create a server, uses `handleRequest` which is function that takes
-// // care of providing requested data
-// const server = http.createServer(handleRequest);
-// 
-// // Start the server
-// server.listen(PORT, () => {
-//   console.log('Server listening on: http://localhost:%s', PORT);
-// });
+// var GoogleAuth = require('google-auth-library');
+// var auth = new GoogleAuth;
 //
-// Dependencies
-var express = require("express");
-var exphbs = require("express-handlebars");
-
-// Create an instance of the express app.
-var app = express();
-
-// Specify the port.
-const port = process.env.PORT || 3000;
-
-// Set Handlebars as the default templating engine.
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// //verify users id "token"
+// var client = new auth.OAuth2(CLIENT_ID, '', '');
+// client.verifyIdToken(
+//     token,
+//     150322396474-ca8vpst9j52tr5eaat191qj3d03tbej3.apps.googleusercontent.com,
+//     function(e, login) {
+//       var payload = login.getPayload();
+//       var userid = payload['sub'];
+//     });
 
 
-//TEST  Data
-var testItems = [
-     {
-     item: "first test item"
-     }
-];
+  // Sets up the Express App
+  var express = require("express");
+  var bodyParser = require("body-parser");
+  var app = express();
+  var PORT = process.env.PORT || 8080;
+
+  // Requiring our models for syncing
+  // var db = require("./models");
+
+  // Sets up the Express app to handle data parsing
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.text());
+  app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+  // Static directory
+  // app.use(express.static("public"));
+
+  // Routes
+  // =============================================================
+  require("./controllers/loginController.js")(app);
+  // require("./routes/x-routes.js")(app);
+
+  // Syncing our sequelize models and then starting our Express app
+  // =============================================================
+  // db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 
 
-// Routes
-app.get("/index", function(req, res) {
-  res.render("index", testItems[0]);
-});
-
-// Listener
-// ===========================================================
-app.listen(port, function() {
-  console.log("App listening on PORT " + port);
-});
+  // });
