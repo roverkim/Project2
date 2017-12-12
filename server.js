@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // var GoogleAuth = require('google-auth-library');
 // var auth = new GoogleAuth;
 //
@@ -33,6 +34,8 @@
   // Routes
   // =============================================================
   require("./controllers/loginController.js")(app);
+  //const routes = require("./controllers/dropzoneController.js");
+  //app.use("/", routes);
   // require("./routes/x-routes.js")(app);
 
   // Syncing our sequelize models and then starting our Express app
@@ -44,3 +47,52 @@
 
 
   // });
+=======
+// // Use the environment constiable or use a given port
+// const PORT = process.env.PORT || 8080;
+//
+// // Create a server, uses `handleRequest` which is function that takes
+// // care of providing requested data
+// const server = http.createServer(handleRequest);
+//
+// // Start the server
+// server.listen(PORT, () => {
+//   console.log('Server listening on: http://localhost:%s', PORT);
+// });
+//
+// Dependencies
+
+
+// Set Handlebars as the default templating engine.
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static("public"));
+app.use(express.static("views"));
+
+// Add Additional Functionality to Express Using Middleware body-parser
+
+
+
+//TEST  Data
+const testItems = [
+     {
+     item: "first test item"
+     }
+];
+
+
+// Import routes and kgive the server access to them.
+// const routes = require("./controllers/");
+
+
+
+
+// Listener
+// ===========================================================
+app.listen(port, function() {
+  console.log("App listening on PORT " + port);
+});
+>>>>>>> upstream/master
