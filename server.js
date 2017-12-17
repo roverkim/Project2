@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+// <<<<<<< HEAD
 // var GoogleAuth = require('google-auth-library');
 // var auth = new GoogleAuth;
 //
@@ -16,8 +16,9 @@
   // Sets up the Express App
   var express = require("express");
   var bodyParser = require("body-parser");
+  var exphbs = require("express-handlebars");
   var app = express();
-  var PORT = process.env.PORT || 8080;
+  var port = process.env.PORT || 8080;
 
   // Requiring our models for syncing
   // var db = require("./models");
@@ -31,6 +32,17 @@
   // Static directory
   // app.use(express.static("public"));
 
+
+  // Set Handlebars as the default templating engine.
+  app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+  app.set("view engine", "handlebars");
+
+
+  // Serve static content for the app from the "public" directory in the application directory.
+  app.use(express.static("public"));
+  app.use(express.static("views"));
+
+
   // Routes
   // =============================================================
   require("./controllers/loginController.js")(app);
@@ -41,13 +53,14 @@
   // Syncing our sequelize models and then starting our Express app
   // =============================================================
   // db.sequelize.sync({ force: true }).then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+  app.listen(port, function() {
+    // console.log("App listening on PORT " + PORT);
+    console.log(`App is listening on port: ${port}`);
   });
 
 
   // });
-=======
+// =======
 // // Use the environment constiable or use a given port
 // const PORT = process.env.PORT || 8080;
 //
@@ -63,25 +76,18 @@
 // Dependencies
 
 
-// Set Handlebars as the default templating engine.
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
-
-// Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static("public"));
-app.use(express.static("views"));
 
 // Add Additional Functionality to Express Using Middleware body-parser
 
 
 
 //TEST  Data
-const testItems = [
-     {
-     item: "first test item"
-     }
-];
+// const testItems = [
+//      {
+//      item: "first test item"
+//      }
+// ];
 
 
 // Import routes and kgive the server access to them.
@@ -92,7 +98,7 @@ const testItems = [
 
 // Listener
 // ===========================================================
-app.listen(port, function() {
-  console.log("App listening on PORT " + port);
-});
->>>>>>> upstream/master
+// app.listen(port, function() {
+//   console.log("App listening on PORT " + port);
+// });
+// >>>>>>> upstream/master
