@@ -29,9 +29,6 @@
   app.use(bodyParser.text());
   app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-  // Static directory
-  // app.use(express.static("public"));
-
 
   // Set Handlebars as the default templating engine.
   app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -41,7 +38,6 @@
   // Serve static content for the app from the "public" directory in the application directory.
   app.use(express.static("public"));
   app.use(express.static("views"));
-
 
   // Routes
   // =============================================================
