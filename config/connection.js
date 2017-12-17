@@ -7,6 +7,7 @@ var connection;
 if (process.env.JAWSDB_URL) {
 // DB is JawsDB on Heroku
 connection = mysql.createConnection(process.env.JAWSDB_URL);
+
       } else {
 // DB is local on localhost
           connection = mysql.createConnection({
@@ -16,6 +17,7 @@ connection = mysql.createConnection(process.env.JAWSDB_URL);
           password: 'r3gzdfcbsnwesjcd',
           database: 'bpu19iau6iiinpq5'
         })
+
 };
 
 // Make the connection to MySQL

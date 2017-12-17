@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS `sequelize_library`;
 CREATE DATABASE `sequelize_library`;
 
+
 CREATE TABLE user_external_login
 (
 	id int NOT NULL AUTO_INCREMENT,
