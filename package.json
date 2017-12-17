@@ -26,6 +26,7 @@
     "foreman": "2.0.0",
     "handlebars": "4.0.11",
     "hbs": "4.0.1",
+    "mysql": "^2.15.0",
     "passport": "0.4.0",
     "passport-google-oauth": "1.0.0",
     "request": "2.83.0",

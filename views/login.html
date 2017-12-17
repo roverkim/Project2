@@ -8,16 +8,8 @@
   </head>
   <body>
   // sign in with google button
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <!-- <button class="g-signin "
-      data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email"
-      data-requestvisibleactions="http://schemas.google.com/AddActivity"
-      data-clientId="150322396474-ca8vpst9j52tr5eaat191qj3d03tbej3.apps.googleusercontent.com"
-      data-accesstype="offline"
-      data-callback="mycoddeSignIn"
-      data-theme="dark"
-      data-cookiepolicy="single_host_origin">
-    </button> -->
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" onclick="onSignIn()"></div>
+
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script>
       function onSignIn(googleUser) {
