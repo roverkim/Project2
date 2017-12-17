@@ -1,3 +1,66 @@
+// <<<<<<< HEAD
+// var GoogleAuth = require('google-auth-library');
+// var auth = new GoogleAuth;
+//
+// //verify users id "token"
+// var client = new auth.OAuth2(CLIENT_ID, '', '');
+// client.verifyIdToken(
+//     token,
+//     150322396474-ca8vpst9j52tr5eaat191qj3d03tbej3.apps.googleusercontent.com,
+//     function(e, login) {
+//       var payload = login.getPayload();
+//       var userid = payload['sub'];
+//     });
+
+
+  // Sets up the Express App
+  var express = require("express");
+  var bodyParser = require("body-parser");
+  var exphbs = require("express-handlebars");
+  var app = express();
+  var port = process.env.PORT || 8080;
+
+  // Requiring our models for syncing
+  // var db = require("./models");
+
+  // Sets up the Express app to handle data parsing
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.text());
+  app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+  // Static directory
+  // app.use(express.static("public"));
+
+
+  // Set Handlebars as the default templating engine.
+  app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+  app.set("view engine", "handlebars");
+
+
+  // Serve static content for the app from the "public" directory in the application directory.
+  app.use(express.static("public"));
+  app.use(express.static("views"));
+
+
+  // Routes
+  // =============================================================
+  require("./controllers/loginController.js")(app);
+  //const routes = require("./controllers/dropzoneController.js");
+  //app.use("/", routes);
+  // require("./routes/x-routes.js")(app);
+
+  // Syncing our sequelize models and then starting our Express app
+  // =============================================================
+  // db.sequelize.sync({ force: true }).then(function() {
+  app.listen(port, function() {
+    // console.log("App listening on PORT " + PORT);
+    console.log(`App is listening on port: ${port}`);
+  });
+
+
+  // });
+// =======
 // // Use the environment constiable or use a given port
 // const PORT = process.env.PORT || 8080;
 //
@@ -11,47 +74,31 @@
 // });
 //
 // Dependencies
-const express = require("express");
-const exphbs = require("express-handlebars");
-const bodyParser = require("body-parser");
-
-// Specify the port.
-const port = process.env.PORT || 3000;
-
-// Create an instance of the express app.
-const app = express();
-
-// Set Handlebars as the default templating engine.
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
 
-// Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static("public"));
-app.use(express.static("views"));
+
 
 // Add Additional Functionality to Express Using Middleware body-parser
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use("/public", express.static(__dirname + '/public'));
+
 
 
 //TEST  Data
-const testItems = [
-     {
-     item: "first test item"
-     }
-];
+// const testItems = [
+//      {
+//      item: "first test item"
+//      }
+// ];
 
 
 // Import routes and kgive the server access to them.
 // const routes = require("./controllers/");
 
-const routes = require("./controllers/dropzoneController.js");
-app.use("/", routes);
+
+
 
 // Listener
 // ===========================================================
-app.listen(port, function() {
-  console.log("App listening on PORT " + port);
-});
+// app.listen(port, function() {
+//   console.log("App listening on PORT " + port);
+// });
+// >>>>>>> upstream/master

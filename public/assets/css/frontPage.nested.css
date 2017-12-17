@@ -1,0 +1,233 @@
+.delay-1 {
+  animation-delay: 9s;
+  animation-duration: 1.6s;
+  animation-timing-function: ease-in-out; }
+
+button {
+  background: transparent !important;
+  border: none;
+  font-weight: 400;
+  font-family: 'Open Sans','Lato', 'Arvo', 'Vollkorn', serif, sans-serif;
+  color: rgba(255, 255, 255, 0.6); }
+
+#bg1 {
+  background: url("../img/Main_Image_4.jpeg") no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover; }
+
+#bg2 {
+  background: url("../img/Main_Image_2.jpeg") no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover; }
+
+#bg3 {
+  background: url("../img/Main_Image_3.jpeg") no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover; }
+
+#bg4 {
+  background: url("../img/Main_Image_1.jpeg") no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover; }
+
+#bg5 {
+  background: url("../img/Main_Image_5.jpeg") no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover; }
+
+#bg6 {
+  background: url("../img/Main_Image_6.jpeg") no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover; }
+
+#bg7 {
+  background: url("../img/Main_Image_7.jpeg") no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover; }
+
+#bg8 {
+  background: url("../img/Main_Image_8.jpeg") no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover; }
+
+::-webkit-scrollbar {
+  display: none; }
+
+@keyframes moveSVG {
+  from {
+    top: 50%;
+    left: 50%;
+    width: 50vw; }
+  to {
+    top: 5%;
+    left: 15%;
+    width: 25vw; } }
+
+@keyframes shadeChage {
+  from {
+    background: rgba(255, 255, 255, 0.1); }
+  to {
+    background: rgba(0, 0, 0, 0.65); } }
+
+body {
+  max-height: 100vh;
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: url("../img/Main_Image_4.jpeg") no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  font-family: 'Open Sans','Lato', 'Arvo', 'Vollkorn', serif, sans-serif; }
+  body .backgroundShade {
+    background: rgba(255, 255, 255, 0.1);
+    height: 100vh;
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 10fr;
+    grid-template-areas: "header" "mainSection";
+    animation: shadeChage 3s ease-in-out 8s forwards; }
+    body .backgroundShade #header {
+      grid-area: header;
+      display: grid;
+      grid-template-columns: 3fr 3fr 2fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "logoPixprience . . loginBtn menuBtn .";
+      text-align: center;
+      vertical-align: middle;
+      padding: 10px;
+      font-size: 3vh;
+      margin: 10px; }
+      body .backgroundShade #header #logoPixprience {
+        grid-area: logoPixprience; }
+        body .backgroundShade #header #logoPixprience .logo {
+          width: 50vw;
+          animation: moveSVG 4s ease-in-out 6s forwards;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); }
+          body .backgroundShade #header #logoPixprience .logo #pixprienceSVG {
+            height: auto;
+            width: auto;
+            z-index: 99999999; }
+      body .backgroundShade #header #loginBtn {
+        grid-area: loginBtn;
+        position: relative; }
+        body .backgroundShade #header #loginBtn .login {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); }
+      body .backgroundShade #header #menuBtn {
+        grid-area: menuBtn;
+        position: relative;
+        border: 0.3vh solid #f1da18;
+        padding: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+        margin-bottom: 5px;
+        transition: background-color 1s ease-in-out; }
+        body .backgroundShade #header #menuBtn:hover {
+          background-color: rgba(255, 255, 255, 0.3); }
+        body .backgroundShade #header #menuBtn .menu {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: color 1s ease-in-out;
+          overflow: auto;
+          width: 100%; }
+          body .backgroundShade #header #menuBtn .menu:hover {
+            color: white; }
+    body .backgroundShade #mainSection {
+      grid-area: mainSection;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 2fr 1fr;
+      grid-template-areas: "upperMain" "lowerMain";
+      font-size: 2vh;
+      font-weight: 200;
+      color: rgba(255, 255, 255, 0.8);
+      max-height: 100%;
+      text-align: center; }
+      body .backgroundShade #mainSection #upperMain {
+        grid-area: upperMain;
+        display: grid;
+        grid-template-columns: 1fr 8fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: ". . ." ". upperMainContainer ."; }
+        body .backgroundShade #mainSection #upperMain #upperMainContainer {
+          grid-area: upperMainContainer;
+          height: 40%;
+          justify-self: center;
+          align-self: center;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 2fr 1fr;
+          grid-template-areas: "slogan" "registerBtn";
+          grid-row-gap: 4vh; }
+          body .backgroundShade #mainSection #upperMain #upperMainContainer .slogan {
+            grid-area: slogan;
+            font-size: 8vh; }
+          body .backgroundShade #mainSection #upperMain #upperMainContainer #registerBtn {
+            grid-area: registerBtn;
+            display: grid;
+            width: 10vw;
+            height: 5vh;
+            margin: 0 auto;
+            border: 0.1vh solid #000;
+            background: rgba(255, 255, 255, 0.2);
+              background-position: relative;
+            border-radius: 100px;
+            -moz-border-radius: 100px;
+            -webkit-border-radius: 100px; }
+            body .backgroundShade #mainSection #upperMain #upperMainContainer #registerBtn .register {
+              justify-self: center;
+              align-self: center; }
+      body .backgroundShade #mainSection #lowerMain {
+        grid-area: lowerMain;
+        display: grid;
+        grid-template-columns: 3fr 2fr 5fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: ". . ." " lowerMainContainer . ."; }
+        body .backgroundShade #mainSection #lowerMain #lowerMainContainer {
+          grid-area: lowerMainContainer;
+          height: 40%;
+          display: grid;
+          color: rgba(255, 255, 255, 0.8);
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-template-areas: "watchVideo watchVideo watchVideo" ". icon .";
+          grid-row-gap: 2vh; }
+          body .backgroundShade #mainSection #lowerMain #lowerMainContainer:hover #watchVideo {
+            text-shadow: #000 0px 0px 1px; }
+          body .backgroundShade #mainSection #lowerMain #lowerMainContainer:hover #icon {
+            color: red; }
+          body .backgroundShade #mainSection #lowerMain #lowerMainContainer #watchVideo {
+            grid-area: watchVideo;
+            font-size: 3vh;
+            transition: color 1s ease-in-out; }
+          body .backgroundShade #mainSection #lowerMain #lowerMainContainer #icon {
+            grid-area: icon;
+            transition: color 1s ease-in-out;
+            font-size: 5vh; }
