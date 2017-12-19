@@ -147,7 +147,7 @@ body
 		#header
 			grid-area: header
 			display: grid
-			@include grid($columns:3fr 3fr 2fr 1fr 1fr, $rows: 1fr , $area: "logoPixprience . . loginBtn menuBtn .")
+			@include grid($columns:3fr 3fr 2fr 1fr 1fr, $rows: 1fr , $area: "logoPixprience . . . menuBtn .")
 			text-align: center
 			vertical-align: middle
 			padding: 10px
@@ -168,11 +168,6 @@ body
 						width: auto
 						z-index: 99999999
 
-			#loginBtn
-				grid-area: loginBtn
-				position: relative
-				.login
-					@include normal_Vertical_Horizontal_Center
 			#menuBtn
 				grid-area: menuBtn
 				position: relative
@@ -210,16 +205,16 @@ body
 					height: 40%
 					@include grid_Vertical_Horizontal_Center
 					display: grid
-					@include grid($columns: 1fr, $rows: 2fr 1fr, $area: "slogan" "registerBtn")
+					@include grid($columns: 1fr, $rows: 2fr 1fr, $area: "slogan" "abcRioButton")
 					grid-row-gap: 4vh
 					.slogan
 						grid-area: slogan
 						font-size: 8vh
-					#registerBtn
-						grid-area: registerBtn
+					.abcRioButton
+						grid-area: abcRioButton
 						display: grid
-						width: 10vw
-						height: 5vh
+						width: 10vw !important
+						height: 5vh !important
 						margin: 0 auto
 						border: 0.1vh solid #000
 						background: rgba(255,255,255,0.2)
@@ -227,8 +222,9 @@ body
 						border-radius: 100px
 						-moz-border-radius: 100px
 						-webkit-border-radius: 100px
-						.register
-							@include grid_Vertical_Horizontal_Center
+						.abcRioButtonContentWrapper
+						  display: inline-block
+							height: auto !important
 
 			#lowerMain
 				grid-area: lowerMain

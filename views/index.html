@@ -38,7 +38,6 @@
 				</svg>
 			<!--  End of Logo -->
 			</i></div>
-			<div id="loginBtn" class="g-signin2 animated zoomIn delay-1" data-onsuccess="onSignIn" data-theme="dark" onclick="onSignIn()"></div>
 			<div id="menuBtn" class="animated zoomIn delay-1"><button class="menu dropdown-button " data-activates="dropDownMenu">Menu</button></div>
 		</header>
 
@@ -47,7 +46,7 @@
 				<div id="upperMain">
 					<div id="upperMainContainer" class="animated zoomIn delay-1" >
 						<div class="slogan">Pictures that Show your Experinece</div>
-						<div id="registerBtn"><span class="register">Register</span></div>
+						<div id="registerBtn" class="g-signin2" onclick="onSignIn()" data-onsuccess="onSignIn"><span class="register">Register</span></div>
 					</div>
 				</div>
 				<div id="lowerMain">
@@ -63,7 +62,7 @@
 
 	<!-- Modal Structure -->
 	<!-- Modal Structure -->
-<div id="youtubeModal" class="modal youtubeModal green-text ">
+<div id="youtubeModal" class="modal youtubeModal green-text">
  <div class="modal-content">
 	 <p><div class="video-container">
 		<iframe width="1102" height="620" src="https://www.youtube.com/embed/VH26lrd6LSY?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
@@ -79,5 +78,24 @@
 	  <li class="divider"></li>
 	  <li><a href="#!">Hello</a></li>
 	</ul>
+
+	<script type="text/javascript">
+		function onSignIn(googleUser) {
+			// Useful data for client-side scripts:
+			var profile = googleUser.getBasicProfile();
+
+			// The ID token you need to pass to your backend:
+			var id_token = googleUser.getAuthResponse().id_token;
+			console.log("ID Token: " + id_token);
+
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', 'api/signin');
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.onload = function() {
+				console.log('Signed in as: ' + xhr.responseText);
+			};
+			xhr.send('idtoken=' + id_token);
+		};
+	</script>
 </body>
 </html>
