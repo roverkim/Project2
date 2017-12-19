@@ -5,17 +5,17 @@ CREATE DATABASE `sequelize_library`;
 CREATE TABLE user_external_login
 (
 	id int NOT NULL AUTO_INCREMENT,
-	user_account_id int NOT NULL,
-	external_authentication_provider_id int NOT NULL,
-	external_user_id varchar(255) NOT NULL,
-	name varchar(30) NOT NULL,
-	first_name varchar(30),
-	last_name varchar(30),
-	email varchar(30),
-	login_name varchar(30),
+		user_account_id int NOT NULL,
+		external_authentication_provider_id int NOT NULL,
+		external_user_id varchar(255) NOT NULL,
+		name varchar(30) NOT NULL,
+		first_name varchar(30),
+		last_name varchar(30),
+		email varchar(30),
+		login_name varchar(30),
 	PRIMARY KEY (id),
 	FOREIGN KEY (user_account_id) REFERENCES user_account(id),
-    FOREIGN KEY (external_authentication_provider_id) REFERENCES external_authentication_provider_id(id)
+  FOREIGN KEY (external_authentication_provider_id) REFERENCES external_authentication_provider_id(id)
 );
 
 CREATE TABLE external_authentication_provider
@@ -58,10 +58,10 @@ CREATE TABLE async_operation_status_type
 CREATE TABLE user_details
 (
 	id int NOT NULL AUTO_INCREMENT,
-	first_name varchar(30),
-	last_name varchar(30),
-	email varchar(30),
-	password_salt varchar(255) NOT NULL,
-	password_hash varchar(255) NOT NULL,
+		first_name varchar(30),
+		last_name varchar(30),
+		email varchar(30),
+		password_salt varchar(255) NOT NULL,
+		password_hash varchar(255) NOT NULL,
 	PRIMARY KEY (id)
 );

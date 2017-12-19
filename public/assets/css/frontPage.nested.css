@@ -111,7 +111,7 @@ body {
       display: grid;
       grid-template-columns: 3fr 3fr 2fr 1fr 1fr;
       grid-template-rows: 1fr;
-      grid-template-areas: "logoPixprience . . loginBtn menuBtn .";
+      grid-template-areas: "logoPixprience . . . menuBtn .";
       text-align: center;
       vertical-align: middle;
       padding: 10px;
@@ -130,14 +130,6 @@ body {
             height: auto;
             width: auto;
             z-index: 99999999; }
-      body .backgroundShade #header #loginBtn {
-        grid-area: loginBtn;
-        position: relative; }
-        body .backgroundShade #header #loginBtn .login {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%); }
       body .backgroundShade #header #menuBtn {
         grid-area: menuBtn;
         position: relative;
@@ -145,7 +137,6 @@ body {
         padding: 20px;
         padding-left: 40px;
         padding-right: 40px;
-        margin-bottom: 5px;
         transition: background-color 1s ease-in-out; }
         body .backgroundShade #header #menuBtn:hover {
           background-color: rgba(255, 255, 255, 0.3); }
@@ -184,16 +175,16 @@ body {
           display: grid;
           grid-template-columns: 1fr;
           grid-template-rows: 2fr 1fr;
-          grid-template-areas: "slogan" "registerBtn";
+          grid-template-areas: "slogan" "abcRioButton";
           grid-row-gap: 4vh; }
           body .backgroundShade #mainSection #upperMain #upperMainContainer .slogan {
             grid-area: slogan;
             font-size: 8vh; }
-          body .backgroundShade #mainSection #upperMain #upperMainContainer #registerBtn {
-            grid-area: registerBtn;
+          body .backgroundShade #mainSection #upperMain #upperMainContainer .abcRioButton {
+            grid-area: abcRioButton;
             display: grid;
-            width: 10vw;
-            height: 5vh;
+            width: 10vw !important;
+            height: 5vh !important;
             margin: 0 auto;
             border: 0.1vh solid #000;
             background: rgba(255, 255, 255, 0.2);
@@ -201,9 +192,8 @@ body {
             border-radius: 100px;
             -moz-border-radius: 100px;
             -webkit-border-radius: 100px; }
-            body .backgroundShade #mainSection #upperMain #upperMainContainer #registerBtn .register {
-              justify-self: center;
-              align-self: center; }
+            body .backgroundShade #mainSection #upperMain #upperMainContainer .abcRioButton .abcRioButtonContentWrapper {
+              display: inline-block; }
       body .backgroundShade #mainSection #lowerMain {
         grid-area: lowerMain;
         display: grid;

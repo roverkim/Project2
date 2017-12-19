@@ -12,7 +12,7 @@ body {
   color: #fff;
   overflow-x: hidden;
   padding-bottom: 50px;
-  
+
 }  /* INTRO SECTION
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -34,6 +34,18 @@ h1 {
 
 img {
   cursor: pointer;
+}
+
+.image-upload>input {
+    display: none;
+}
+.attach-doc {
+    cursor: pointer;
+}
+
+img {
+    max-width: 500px;
+    max-height: 220px
 }
 
 /* TIMELINE
@@ -187,5 +199,3 @@ div {
     border-color: transparent #6D33FF transparent transparent;
   }
 }
-
- 

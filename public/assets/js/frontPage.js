@@ -23,22 +23,22 @@ $(document).ready(function() {
 
   run(20000, 9); //milliseconds, frames
 
-  /////////////////////////////////////////////// /* Google Authentication*/ //////////////////////////////////////////////////////////
-  function onSignIn(googleUser) {
-    // Useful data for client-side scripts:
-    var profile = googleUser.getBasicProfile();
-
-    // The ID token you need to pass to your backend:
-    var id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://localhost:8080/api/signin');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-      console.log('Signed in as: ' + xhr.responseText);
-    };
-    xhr.send('idtoken=' + id_token);
-  };
+  /////////////////////////////////////////////// /* Google Authentication*/ /////////////////////////////////////////////////////////
+  // function onSignIn(googleUser) {
+  //   // Useful data for client-side scripts:
+  //   var profile = googleUser.getBasicProfile();
+  //
+  //   // The ID token you need to pass to your backend:
+  //   var id_token = googleUser.getAuthResponse().id_token;
+  //   console.log("ID Token: " + id_token);
+  //
+  //   var xhr = new XMLHttpRequest();
+  //   xhr.open('POST', 'api/signin');
+  //   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  //   xhr.onload = function() {
+  //     console.log('Signed in as: ' + xhr.responseText);
+  //   };
+  //   xhr.send('idtoken=' + id_token);
+  // };
 
 });
