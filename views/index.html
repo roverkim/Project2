@@ -46,7 +46,7 @@
 				<div id="upperMain">
 					<div id="upperMainContainer" class="animated zoomIn delay-1" >
 						<div class="slogan">Pictures that Show your Experinece</div>
-						<div id="registerBtn" class="g-signin2" onclick="onSignIn()" data-onsuccess="onSignIn"><span class="register">Register</span></div>
+						<div id="registerBtn" class="g-signin2" data-onsuccess="onSignIn"><span class="register">Register</span></div>
 					</div>
 				</div>
 				<div id="lowerMain">
@@ -80,22 +80,52 @@
 	</ul>
 
 	<script type="text/javascript">
+
+		window.onbeforeunload = function(e){
+		  gapi.auth2.getAuthInstance().signOut();
+		};
+
 		function onSignIn(googleUser) {
+
 			// Useful data for client-side scripts:
 			var profile = googleUser.getBasicProfile();
 
+			console.log(googleUser);
+
+			var userProfile = {
+				id: profile.getId(),
+				fullName: profile.getName(),
+				email: profile.getEmail()
+			}
+
+			console.log(userProfile);
+
 			// The ID token you need to pass to your backend:
 			var id_token = googleUser.getAuthResponse().id_token;
-			console.log("ID Token: " + id_token);
 
-			var xhr = new XMLHttpRequest();
-			xhr.open('POST', 'api/signin');
-			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-			xhr.onload = function() {
-				console.log('Signed in as: ' + xhr.responseText);
-			};
-			xhr.send('idtoken=' + id_token);
+			fetch("/api/signin", {
+				method : 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(userProfile)
+			}).then(response => response.json()).then((data) =>{
+					sessionStorage.setItem("sessionID", JSON.stringify(data));
+
+
+					$("#mainSection").html("<div class='showbox'><div class='loader'><svg class='circular' viewBox='25 25 50 50'><circle class='path' cx='50' cy='50' r='20' fill='none' stroke-width='2' stroke-miterlimit='10'/></svg></div></div>");
+
+					setTimeout(function(){
+						$.get("/timeline").done((newPath)=>{ //Request for findingMatch <UR></UR>L. newPath = "findingMatch.html"
+							window.location.replace(newPath); // Redirect the Client's Browser to /findingMatch.html. This Function Makes Another get call to the Server for "findingMatch.html"
+						 });
+					}, 2000);
+
+			});
+
 		};
+
+
 	</script>
 </body>
 </html>
