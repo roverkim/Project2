@@ -14,6 +14,7 @@ var Sequelize = require('sequelize');
 module.exports = function(app) {
 
   /////////////////////////////////////////////// /* Get Routes */ ////////////////////////////////////////////////////////
+  // HTML Paths
   app.get("/", function(req, res) {
     console.log("Root Path Hit");
     res.sendFile(path.join(__dirname, "../views/index.html"));
@@ -27,18 +28,27 @@ module.exports = function(app) {
   });
 
 
+  //Redirection Link Paths
+  app.get("/:timeline", function(req, res) {
+
+    console.log("Sending TimeLine URL");
+    res.send("/timeline.html");
+
+  });
+
+
   /////////////////////////////////////////////// /* Post Routes*/ ////////////////////////////////////////////////////////
 
-  app.post('/api/signin',  function(req, res){
-    console.log("path hit");
-    var user = {
-      name: req.body.fullName,
-      email: req.body.email,
-      clientid: req.body.id
-    };
+  app.post("/api/signin", function(req, res) {
 
-    console.log(user);
+    console.log("Sign in Path hit");
 
+    console.log(req.body);
+
+    //parse data into variables
+    var user = req.body;
+
+    res.json(user.id);
 
   });
 
