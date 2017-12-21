@@ -28,6 +28,14 @@ body {
   text-align: center;
 }
 
+.br-theme-fontawesome-stars .br-widget a {
+  font: normal normal normal 50px/1 FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
 h1 {
   font-size: 2.5rem;
 }
