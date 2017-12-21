@@ -4,103 +4,39 @@
 <head>
   <meta charset="UTF-8">
   <title>Timeline</title>
-
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.1/themes/fontawesome-stars.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.1/themes/bars-reversed.min.css">
+ 	<link type="text/css" rel="stylesheet" href="./assets/materialize/css/materialize.css"  media="screen,projection"/>
   <link rel="stylesheet" href="assets/css/timeline.css">
   <link rel="stylesheet" href="assets/css/modal.css">
+  <!-- Scripts -->
   <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script type="text/javascript" src="assets/js/firebaseConfig.js"></script>
   <script type="text/javascript" src="assets/js/firebase.js"></script>
 
-
-  <style>
-      .br-theme-fontawesome-stars .br-widget a {
-        font: normal normal normal 50px/1 FontAwesome;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        text-decoration: none;
-        margin-right: 20px;
-    }
-  </style>
-
 </head>
 
 <body>
-  <div class="image-upload">
-      <label for="file-input">
-          <span class="attach-doc">Upload an Image &nbsp;<i class="fa fa-upload" aria-hidden="true"></i></span>
-      </label>
-      <script type="text/javascript" src="assets/js/firebase.js"></script>
-      <input id="file-input" type="file" onchange="uploadToFirebase(this.files)" />
-  </div>
   <section class="intro">
+    <div>
+      <button class="modal-trigger" href="#imageUploadModal">Upload</button>
+    </div>
   <div class="container">
     <img src="assets/img/user1.jpg" class="user">
-
     <h1>Your Timeline &darr;</h1>
   </div>
 </section>
 
 <section class="timeline">
-  <ul>
-    <li>
-      <div>
-        <time>2017</time>
-        <img id="myImg1" src="assets/img/Main_Image_1.jpeg" alt="" title="Anthology 1 front" width="100%" height="100%" >
-         <!-- At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium -->
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>2016</time>
-        <img id="myImg2" src="assets/img/Main_Image_2.jpeg" alt="" title="Anthology 1 front" width="100%" height="100%" >
-        Proin quam velit, efficitur vel neque vitae, rhoncus commodo mi. Suspendisse finibus mauris et bibendum molestie. Aenean ex augue, varius et pulvinar in, pretium non nisi.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>2015</time>
-        <img id="myImg3" src="assets/img/Main_Image_3.jpeg" alt="" title="Anthology 1 front" width="100%" height="100%" >
-        Proin iaculis, nibh eget efficitur varius, libero tellus porta dolor, at pulvinar tortor ex eget ligula. Integer eu dapibus arcu, sit amet sollicitudin eros.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>2015</time>
-        <img id="myImg4" src="assets/img/Main_Image_4.jpeg" alt="" title="Anthology 1 front" width="100%" height="100%" > In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>2010</time>
-        <img id="myImg5" src="assets/img/Main_Image_5.jpeg" alt="" title="Anthology 1 front" width="100%" height="100%" > In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>2005</time>
-        <img id="myImg" src="assets/img/Main_Image_6.jpeg" alt="" title="Anthology 1 front" width="100%" height="100%" >  In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>2002</time>
-        <img id="myImg7" src="assets/img/Main_Image_7.jpeg" alt="" title="Anthology 1 front" width="100%" height="100%" > In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>2000</time>
-        <img id="myImg8" src="assets/img/Main_Image_8.jpeg" alt="" title="Anthology 1 front" width="100%" height="100%" > Aenean condimentum odio a bibendum rhoncus. Ut mauris felis, volutpat eget porta faucibus, euismod quis ante.
-      </div>
-    </li>
-
+  <ul class="ulTimeline">
   </ul>
 </section>
 
+<!-- Modals -->
+<!-- Image Model -->
 <div id="myModal" class="modal">
   <select id="example">
      <option value="1">1</option>
@@ -115,13 +51,56 @@
   <div id="caption"><p></p></div>
 </div>
 
+<!-- Drop Down Form Modal -->
+
+<!-- Modal Structure -->
+<div id="imageUploadModal" class="modal imageUploadModal green-text">
+ <div class="modal-content">
+   <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <!-- Image Upload -->
+        <div class="image-upload col s12">
+            <label for="file-input">
+                <span class="attach-doc">Upload an Image &nbsp;<i class="fa fa-upload" aria-hidden="true"></i></span>
+            </label>
+            <script type="text/javascript" src="assets/js/firebase.js"></script>
+            <input id="file-input" type="file" onchange="uploadToFirebase(this.files)" />
+        </div>
+
+        <div class="input-field col s12">
+          <i class="material-icons prefix">speaker_notes</i>
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1">Textarea</label>
+        </div>
+
+        <!-- Image Field -->
+        <!-- Notes Input Field -->
+        <div class="input-field col s12">
+          <i class="material-icons prefix">phone</i>
+          <input id="icon_telephone" type="tel" class="validate">
+          <label for="icon_telephone">Telephone</label>
+        </div>
+        <!-- Favourites Field -->
+        <!-- Location Field -->
+      </div>
+    </form>
+  </div>
+ </div>
+</div>
+
+
+
+
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous">
 </script>
+
 <script type="text/javascript" src="assets/js/timeline.js"></script>
 <script type="text/javascript" src="assets/js/modal.js"></script>
+<script type="text/javascript" src="./assets/materialize/js/materialize.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.1/jquery.barrating.min.js"></script>
 <script>
   $(function() {

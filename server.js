@@ -3,7 +3,7 @@
   var bodyParser = require("body-parser");
   var exphbs = require("express-handlebars");
   var app = express();
-  var port = process.env.PORT || 8080;
+  var port = process.env.PORT || 9080;
 
   // Requiring our models for syncing
   // var db = require("./models");

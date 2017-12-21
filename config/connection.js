@@ -13,7 +13,7 @@ connection = mysql.createConnection({
   port: 3306,
    host: 'gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
    user: 'k44glo6u371o50eg',
-   password: 'hy3dvo7qaljlj03u',
+   password: 'o66lwafz7ayahgj6',
    database: 'bpu19iau6iiinpq5'
 })
 };
