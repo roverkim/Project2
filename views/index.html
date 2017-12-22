@@ -59,7 +59,7 @@
 
 	</div>
 	<!-- End of Body -->
-	
+
 	<!-- Modal Structure -->
 	<div id="youtubeModal" class="modal youtubeModal green-text">
 	 <div class="modal-content">
@@ -92,9 +92,12 @@
 			console.log(googleUser);
 
 			var userProfile = {
-				id: profile.getId(),
-				fullName: profile.getName(),
-				email: profile.getEmail()
+				externalAuthenticationProviderId: profile.getId(),
+				name: profile.getName(),
+				firstName: profile.getGivenName(),
+				lastName: profile.getFamilyName(),
+				email: profile.getEmail(),
+				profilePicture: profile.getImageUrl()
 			}
 
 			console.log(userProfile);
