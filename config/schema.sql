@@ -13,6 +13,7 @@ CREATE TABLE user_external_login
 		last_name varchar(30),
 		email varchar(30),
 		login_name varchar(30),
+		profile_picture varchar(30),
 	PRIMARY KEY (id),
 	FOREIGN KEY (user_account_id) REFERENCES user_account(id),
   FOREIGN KEY (external_authentication_provider_id) REFERENCES external_authentication_provider_id(id)
