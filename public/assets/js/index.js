@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-
-  /////////////////////////////////////////////// /* SVG */ //////////////////////////////////////////////////////////
   // Activate Drop Down Menu
   $(".dropdown-button").dropdown();
 
@@ -22,7 +20,6 @@ $(document).ready(function() {
   }
 
   run(20000, 9); //milliseconds, frames
-
   
 
 });

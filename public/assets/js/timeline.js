@@ -5,6 +5,9 @@ function first(){
       userID: sessionStorage.getItem("sessionID")
     };
 
+    if (userID === undefined){
+      windows.location
+    }
     // Send User ID to Backend for Querying
     fetch("/api/images", {
       method : 'POST',
