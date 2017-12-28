@@ -16,8 +16,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script type="text/javascript" src="assets/js/firebaseConfig.js"></script>
   <script type="text/javascript" src="assets/js/firebase.js"></script>
-
 </head>
+<script>
+// Redirects TimeLine back to Login Page if User is not Signed In.
+  var userID = sessionStorage.getItem("sessionID");
+  if(userID === null){
+    console.log("Redirecting because");
+    window.location.replace("/");
+  }
+</script>
 
 <body>
   <section class="intro">

@@ -1,95 +1,76 @@
 var path = require("path");
 var connection = require('../config/connection.js');
 var Sequelize = require('sequelize');
-// var GoogleStrategy = require('passport-google-web');
-//
-// passport.use(new GoogleStrategy(function(token, profile, done) {
-//     User.findOrCreate({ googleId: profile.id }, function(err, user) {
-//       return cb(err, user);
-//     });
-//   }
-// ));
+
+// Require Sequelize Models
+var db = require("../models");
+
 
 
 module.exports = function(app) {
 
   /////////////////////////////////////////////// /* Get Routes */ ////////////////////////////////////////////////////////
-  // HTML Paths
-  app.get("/", function(req, res) {
-    console.log("Root Path Hit");
-    res.sendFile(path.join(__dirname, "../views/index.html"));
+
+  app.get("/:path?", function(req,res){
+
+    // Store Current Path
+    var currentPath = req.params.path;
+
+    // Switch Statement for Get Paths
+    switch(currentPath){
+      case "timeline":
+        console.log("Sending TimeLine URL");
+        res.send("/timeline.html");
+        break;
+      case "timeline.html":
+        console.log("Time Line Path Hit");
+        res.sendFile(path.join(__dirname, "../views/timeline.html"));
+        break;
+      // Default for all Invalid Paths is the homepage
+      default:
+        console.log("Root Path Hit");
+        res.sendFile(path.join(__dirname, "../views/index.html"));
+        break;
+    } // End Switch
+
   });
-
-  app.get("/:timeline.html", function(req, res) {
-
-    console.log("Time Line Path Hit");
-    res.sendFile(path.join(__dirname, "../views/timeline.html"));
-
-  });
-
-
-  //Redirection Link Paths
-  app.get("/:timeline", function(req, res) {
-
-    console.log("Sending TimeLine URL");
-    res.send("/timeline.html");
-
-  });
-
 
   /////////////////////////////////////////////// /* Post Routes*/ ////////////////////////////////////////////////////////
 
   app.post("/api/signin", function(req, res) {
 
     console.log("Sign in Path hit");
-
     console.log(req.body);
 
-    //parse data into variables
+    //Parse data into variables
     var user = req.body;
 
-    res.json(user.id);
+    //Store User Google Details in database if User does not Exists.
+    db.user_external_logins.findCreateFind({
+      where: {
+        external_authentication_provider_id: user.externalAuthenticationProviderId,
+      },
+      defaults: {
+        id: null,
+        user_account_id: user.externalAuthenticationProviderId,
+        external_authentication_provider_id: user.externalAuthenticationProviderId,
+        external_user_id: user.externalAuthenticationProviderId,
+        name: user.name,
+        first_name: user.firstName,
+        last_name: user.lastName,
+        email: user.email,
+        login_name: null,
+        profile_picture: user.profilePicture
+
+      }
+    }).then(function(data){
+      console.log("returns "+ data);
+      // Sends Back Google User ID to the Login Page for Storage in Session Storage.
+      console.log("User Data Sucessfully Added to Database");
+      res.json(user.externalAuthenticationProviderId);
+    });
 
   });
 
-//   app.post("api/signin", function(req, res) {
-//
-//     console.log("Posting user name");
-//     res.send({ "hi": "hello" })
-//     //parse data into variables
-//
-//
-//
-//     console.log(user);
-//     // console.log(req.body.fullName);
-//     // console.log(req.body.email);
-//     // console.log(req.body.id);
-//     // console.log(req.body);
-//     //TODO: write code that interacts with db
-//
-//     //  user_external_login
-//     // .findOrCreate({where: {external_user_id: 'clientid'}, defaults: {job: 'Technical Lead JavaScript'}})
-//     // .spread((user, created) => {
-//     //   console.log(user.get({
-//     //     plain: true
-//     //   }))
-//     //   console.log(created)
-//
-//     /*
-//     findOrCreate returns an array containing the object that was found or created and a boolean that will be true if a new object was created and false if not, like so:
-//
-//   [ {
-//        username: 'sdepold',
-//        job: 'Technical Lead JavaScript',
-//        id: 1,
-//        createdAt: Fri Mar 22 2013 21: 28: 34 GMT + 0100(CET),
-//        updatedAt: Fri Mar 22 2013 21: 28: 34 GMT + 0100(CET)
-//      },
-//      true ]
-//
-// In the example above, the "spread" on line 39 divides the array into its 2 parts and passes them as arguments to the callback function defined beginning at line 39, which treats them as "user" and "created" in this case. (So "user" will be the object from index 0 of the returned array and "created" will equal "true".)
-//    */
-//  });
 
-
-}
+}; // End of Module Exports

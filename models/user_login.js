@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
-  var UserExternalLogin = sequelize.define("user_external_login", {
+  var UserExternalLogins = sequelize.define("user_external_logins", {
 
     id: {
       type: DataTypes.INTEGER ,
@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     external_authentication_provider_id : {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(255),
       allowNull: false,
     },
 
@@ -49,5 +49,5 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(30)
     }
   });
-  return UserExternalLogin;
+  return UserExternalLogins;
 };
