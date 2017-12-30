@@ -25,6 +25,6 @@ $('section.timeline').on('click','img',function(){
 var span = $(".close");
 
 // When the user clicks on <span> (x), close the modal
-span.click(function() { 
+span.click(function() {
     modal.css("display","none");
 });
