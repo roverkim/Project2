@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Google Platform Meta Data -->
+	<meta name="google-signin-scope" content="profile email">
+	<meta name="google-signin-client_id" content="150322396474-ca8vpst9j52tr5eaat191qj3d03tbej3.apps.googleusercontent.com">
+
+	<!-- Libaries -->
+	<link rel="stylesheet" href="./assets/css/reset.css">
+  		<!--Import materialize-->
+ 	<link type="text/css" rel="stylesheet" href="./assets/materialize/css/materialize.css"  media="screen,projection"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Arvo|Lato|Vollkorn" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" href="./assets/css/pixprienceSVG.css">
+	<link rel="stylesheet" href="./assets/css/frontPage.nested.css">
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script type="text/javascript" src="./assets/materialize/js/materialize.min.js"></script>
+	<script src="./assets/js/index.js"></script>
+
+	<title>Pixprience</title>
+</head>
+
+<body>
+	<div class="backgroundShade">
+		<!-- Header Nav Bar -->
+		<header id="header">
+			<div id="logoPixprience"><i class="logo">
+				<svg id='pixprienceSVG' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1366 162'><path class='st0' d='M405.735 152.215H39L184.265 12H551z'/><g class='st1'><path class='t1' d='M118.813 38.483l32.707-.01c16.746-.006 28.262 8.897 28.267 24.454.005 15.808-11.374 25.096-29.167 25.102l-24.596.008.012 38.265-7.195.002-.028-87.821zm7.209 43.282l25.25-.008c14.784-.005 20.93-7.535 20.927-18.575-.004-11.793-8.118-18.439-20.416-18.436l-25.773.008.012 37.011z'/><path class='t2' d='M259.191 38.439l.028 87.82-7.065.002-.028-87.82 7.065-.002z'/><path class='t3' d='M392.008 126.217L364.39 86.706h-.131l-27.331 39.528-8.242.003 31.254-44.673-29.974-43.147 8.242-.003 26.178 37.503h.131l26.677-37.52 8.242-.003-30.861 42.666 31.806 45.155-8.373.002z'/><path class='t4' d='M469.429 38.372l32.707-.011c16.746-.005 28.263 8.898 28.267 24.455.006 15.808-11.373 25.096-29.166 25.102l-24.596.008.012 38.265-7.195.002-.029-87.821zm7.21 43.281l25.25-.009c14.783-.004 20.93-7.534 20.926-18.574-.004-11.793-8.117-18.44-20.415-18.437l-25.773.009.012 37.011z'/><path class='t5' d='M609.953 85.123l.013 41.024-7.195.003-.028-87.82 32.838-.011c18.055-.006 27.607 9.275 27.612 23.075.004 11.166-6.928 18.444-17.132 20.581 9.42 2.129 15.702 8.023 15.707 22.953l.001 3.387c.002 6.147-.519 14.429 1.183 17.815l-7.195.002c-1.702-3.763-1.312-10.788-1.314-18.315v-2.259c-.005-14.428-4.455-20.448-21.986-20.442l-22.504.007zm-.002-6.273l22.109-.007c16.092-.005 23.548-5.778 23.545-17.32-.004-10.79-7.333-16.935-21.594-16.931l-24.072.008.012 34.25z'/><path class='t6' d='M746.389 38.284l.027 87.82-7.064.002-.027-87.82 7.064-.002z'/><path class='t7' d='M880.893 82.904l-46.706.015.012 36.885 51.154-.016-1.045 6.272-57.172.019-.027-87.82 56.126-.019.002 6.272-49.062.016.01 32.117 46.706-.015.002 6.274z'/><path class='t8' d='M957.178 126.037l-.027-87.82 10.466-.003c14.268 21.072 47.775 70.115 53.535 79.648h.131c-.789-12.672-.663-25.594-.667-39.896l-.013-39.77 7.195-.002.027 87.82-9.682.003c-13.611-20.319-47.644-71.37-54.188-81.028h-.131c.658 11.542.531 24.339.536 40.272l.013 40.773-7.195.003z'/><path class='t9' d='M1176.306 102.507c-4.313 13.927-15.037 24.47-34.399 24.476-26.297.008-40.172-20.061-40.18-44.776-.008-23.711 13.592-45.294 40.281-45.303 19.755-.007 31.402 10.529 34.416 25.206l-7.064.002c-4.19-11.415-11.912-18.939-27.742-18.935-22.765.007-32.309 19.958-32.303 38.902.006 18.818 9.433 38.637 32.852 38.63 14.914-.005 22.499-7.408 27.075-18.2l7.064-.002z'/><path class='t10' d='M1303.593 82.77l-46.706.015.012 36.885 51.154-.016-1.045 6.272-57.172.019-.027-87.82 56.126-.019.002 6.272-49.062.016.01 32.117 46.706-.015.002 6.274z'/></g>
+				</svg>
+			<!--  End of Logo -->
+			</i></div>
+			<div id="menuBtn" class="animated zoomIn delay-1"><button class="menu dropdown-button " data-activates="dropDownMenu">Menu</button></div>
+		</header>
+
+		<!-- Main Body -->
+		<section id="mainSection" class="animated zoomIn delay-1">
+				<div id="upperMain">
+					<div id="upperMainContainer" class="animated zoomIn delay-1" >
+						<div class="slogan">Pictures that Show your Experinece</div>
+						<div id="registerBtn" class="g-signin2" data-onsuccess="onSignIn"><span class="register">Register</span></div>
+					</div>
+				</div>
+				<div id="lowerMain">
+					<a id="lowerMainContainer" class="modal-trigger" href="#youtubeModal">
+						<div id="watchVideo">Watch a Live Preview</div>
+						<i id="icon" class="material-icons">play_circle_outline</i>
+					</a>
+				</div>
+		</section>
+
+	</div>
+	<!-- End of Body -->
+
+	<!-- Modal Structure -->
+	<div id="youtubeModal" class="modal youtubeModal green-text">
+	 <div class="modal-content">
+		 <p><div class="video-container">
+			<iframe width="1102" height="620" src="https://www.youtube.com/embed/VH26lrd6LSY?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+		</div></p>
+	 </div>
+	</div>
+
+	<!-- Materialize Drop Down Menu -->
+	<ul id="dropDownMenu" class="dropdown-content">
+	  <li><a href="#!">Github</a></li>
+	  <li class="divider"></li>
+	  <li><a href="#!">About</a></li>
+	  <li class="divider"></li>
+	  <li><a href="#!">Hello</a></li>
+	</ul>
+
+	<script type="text/javascript">
+
+		window.onbeforeunload = function(e){
+		  gapi.auth2.getAuthInstance().signOut();
+		};
+
+		function onSignIn(googleUser) {
+
+			// Useful data for client-side scripts:
+			var profile = googleUser.getBasicProfile();
+
+			console.log(googleUser);
+
+			var userProfile = {
+				externalAuthenticationProviderId: profile.getId(),
+				name: profile.getName(),
+				firstName: profile.getGivenName(),
+				lastName: profile.getFamilyName(),
+				email: profile.getEmail(),
+				profilePicture: profile.getImageUrl()
+			}
+
+			console.log(userProfile);
+
+			// The ID token you need to pass to your backend:
+			var id_token = googleUser.getAuthResponse().id_token;
+
+			fetch("/api/signin", {
+				method : 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(userProfile)
+			}).then(response => response.json()).then((data) =>{
+					sessionStorage.setItem("sessionID", JSON.stringify(data));
+
+
+					$("#mainSection").html("<div class='showbox'><div class='loader'><svg class='circular' viewBox='25 25 50 50'><circle class='path' cx='50' cy='50' r='20' fill='none' stroke-width='2' stroke-miterlimit='10'/></svg></div></div>");
+
+					setTimeout(function(){
+						$.get("/timeline").done((newPath)=>{ //Request for findingMatch <UR></UR>L. newPath = "findingMatch.html"
+							window.location.replace(newPath); // Redirect the Client's Browser to /findingMatch.html. This Function Makes Another get call to the Server for "findingMatch.html"
+						 });
+					}, 2000);
+
+			});
+
+		};
+
+
+	</script>
+</body>
+</html>

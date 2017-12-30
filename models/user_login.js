@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
-  var UserExternalLogins = sequelize.define("user_external_logins", {
+  var UserExternalLogin = sequelize.define("user_external_login", {
 
     id: {
       type: DataTypes.INTEGER ,
@@ -49,5 +49,5 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(30)
     }
   });
-  return UserExternalLogins;
+  return UserExternalLogin;
 };
