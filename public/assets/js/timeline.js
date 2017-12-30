@@ -28,6 +28,9 @@ function first() {
           userID: userData.id
         }
 
+        // JQuery to Populate User Profile Picture on TimeLine
+        $(".user").attr("src", userData.profile_picture);
+
         // Store Unique User ID in Session Storage for Future Use.
         sessionStorage.setItem("userID", JSON.stringify(userData.id));
         console.log("Storing userID in Session Storage: " + userData.id);
@@ -38,7 +41,7 @@ function first() {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: userID
+          body: JSON.stringify(userID)
         }).then((res)=>{
           res.json().then(function(data){
             console.log("Images Received" + data);

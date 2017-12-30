@@ -46,7 +46,7 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     profile_picture: {
-      type: DataTypes.STRING(30)
+      type: DataTypes.TEXT
     }
   });
   return UserExternalLogin;
