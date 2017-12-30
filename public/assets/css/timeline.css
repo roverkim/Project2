@@ -11,7 +11,7 @@ body {
   background: #456990;
   color: #fff;
   overflow-x: hidden;
-  padding-bottom: 50px;
+  min-height: 100vh;
 
 }  /* INTRO SECTION
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -19,6 +19,7 @@ body {
 .intro {
   background: #6D33FF;
   padding: 100px 0;
+  height: 20vh;
 }
 
 .container {
@@ -139,6 +140,12 @@ div {
 
 /* EFFECTS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.delay-2{
+	animation-delay: 1s;
+	animation-duration: 1.6s;
+	animation-timing-function: ease-in-out;
+}
 
 .timeline img ul li::after {
   transition: background .5s ease-in-out;
