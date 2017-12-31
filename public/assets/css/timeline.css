@@ -6,6 +6,38 @@
   box-sizing: border-box;
 }
 
+
+/* Background */
+
+#bg1 {
+  background: url("../img/timeline1.jpg") no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover; }
+
+#bg2 {
+  background: url("../img/timeline2.jpg") no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover; }
+
+#bg3 {
+  background: url("../img/timeline.jpg3") no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover; }
+
+#bg4 {
+  background: url("../img/timeline4.jpg") no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover; }
+
+
 body {
   font: normal 16px/1.5 "Helvetica Neue", sans-serif;
   background: #456990;
@@ -17,7 +49,7 @@ body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .intro {
-  background: #6D33FF;
+  background: rgba(109, 51, 255, 0.3);
   padding: 100px 0;
   height: 20vh;
 }
@@ -57,11 +89,18 @@ img {
     max-height: 220px
 }
 
+/* Upload Btn */
+#uploadBtn{
+  background: rgba(0,0,0,0);
+  border: none
+}
+
+
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .timeline ul {
-  background: black;
+  background: rgba(0,0,0,0.8);
   padding: 50px 0;
 }
 
@@ -147,6 +186,12 @@ div {
 	animation-timing-function: ease-in-out;
 }
 
+.delay-3{
+	animation-delay: 2s;
+	animation-duration: 1.6s;
+	animation-timing-function: ease-in-out;
+}
+
 .timeline img ul li::after {
   transition: background .5s ease-in-out;
 }
@@ -199,7 +244,7 @@ div {
 }
 
 @media screen and (max-width: 600px) {
-  .timeline img ul li {
+    .timeline img ul li {
     margin-left: 20px;
   }
   .timeline ul li div img {
