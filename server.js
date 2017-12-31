@@ -26,6 +26,7 @@
   // Routes
   // =============================================================
   require("./controllers/loginController.js")(app);
+  require("./controllers/photoController.js")(app);
 
 
 
