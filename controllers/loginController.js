@@ -17,33 +17,30 @@ module.exports = function(app) {
 
 
 
+  app.get("/:path", function(req,res){
 
+    // Store Current Path
+    var currentPath = req.params.path;
+    console.log("current path is " + currentPath);
 
+    // Switch Statement for Get Paths
+    switch(currentPath){
+      case "timeline":
+        console.log("Sending TimeLine URL");
+        res.send("/timeline.html");
+        break;
+      case "timeline.html":
+        console.log("Time Line Path Hit");
+        res.sendFile(path.join(__dirname, "../public/timeline.html"));
+        break;
+      // Default for all Invalid Paths is the homepage
+      default:
+        console.log("Root Path Hit");
+        res.sendFile(path.join(__dirname, "../public/index.html"));
+        break;
+    } // End Switch
 
-  // app.get("/:path", function(req,res){
-  //
-  //   // Store Current Path
-  //   var currentPath = req.params.path;
-  //   console.log("current path is " + currentPath);
-  //
-  //   // Switch Statement for Get Paths
-  //   switch(currentPath){
-  //     case "timeline":
-  //       console.log("Sending TimeLine URL");
-  //       res.send("/timeline.html");
-  //       break;
-  //     case "timeline.html":
-  //       console.log("Time Line Path Hit");
-  //       res.sendFile(path.join(__dirname, "../public/timeline.html"));
-  //       break;
-  //     // Default for all Invalid Paths is the homepage
-  //     default:
-  //       console.log("Root Path Hit");
-  //       res.sendFile(path.join(__dirname, "../public/index.html"));
-  //       break;
-  //   } // End Switch
-  //
-  // });
+  });
 
   /////////////////////////////////////////////// /* Post Routes*/ ////////////////////////////////////////////////////////
 
