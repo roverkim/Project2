@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.1/themes/fontawesome-stars.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.1/themes/bars-reversed.min.css">
  	<link type="text/css" rel="stylesheet" href="./assets/materialize/css/materialize.css"  media="screen,projection"/>
-  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <link rel="stylesheet" href="assets/css/timeline.css">
   <link rel="stylesheet" href="assets/css/modal.css">
   <!-- Scripts -->
@@ -28,12 +29,12 @@
   }
 </script>
 
-<body class="animated zoomIn delay-2">
+<body class="animated zoomIn delay-2" id ="bg1">
   <section class="intro">
     <div>
-      <button class="modal-trigger" href="#imageUploadModal">Upload</button>
+      <button class="modal-trigger" id="uploadBtn" href="#imageUploadModal"><i class="material-icons medium">cloud_upload</i></button>
     </div>
-  <div class="container">
+  <div class="container animated bounceInDown delay-3">
     <img src="" class="user">
     <h1>Your Timeline &darr;</h1>
   </div>
