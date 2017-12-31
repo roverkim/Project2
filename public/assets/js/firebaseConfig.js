@@ -9,9 +9,3 @@ var config = {
 };
 
 firebase.initializeApp(config);
-
-// Firebase Upload Files
-let upload = document.getElementById('file-input');
-console.log("Upload is : "+ upload);
-
-upload.addEventListener('change', uploadToFirebase, false);
