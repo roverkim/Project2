@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Codevengers/Project2#readme",
   "dependencies": {
+    "@google-cloud/speech": "^1.0.0",
     "body-parser": "^1.18.2",
     "connect-session-sequelize": "5.1.0",
     "dropzone": "^5.2.0",

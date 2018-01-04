@@ -5643,14 +5643,19 @@ button.btn-floating {
   left: 0;
   right: 0;
   background-color: rgba(0,0,0,0);
-  padding: 0;
+  padding: 0 !important;
   height: auto;
-  max-height: 80vh;
-  width: 55%;
+  max-height: 90vh;
+  width: 55% !important;
   margin: auto;
   overflow-y: auto;
   border-radius: 2px;
   will-change: top, opacity;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  text-align: center;
 }
 
 @media only screen and (max-width: 992px) {

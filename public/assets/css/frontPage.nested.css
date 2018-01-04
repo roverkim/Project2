@@ -79,6 +79,16 @@ button {
     left: 15%;
     width: 25vw; } }
 
+@keyframes moveSVGMobile {
+  from {
+    top: 50%;
+    left: 50%;
+    width: 80vw; }
+  to {
+    top: 5%;
+    left: 50%;
+    width: 65vw; } }
+
 @keyframes shadeChage {
   from {
     background: rgba(255, 255, 255, 0.1); }
@@ -243,8 +253,8 @@ body {
           body .backgroundShade #mainSection #upperMain #upperMainContainer .abcRioButton {
             grid-area: abcRioButton;
             display: grid;
-            width: 10vw !important;
-            height: 5vh !important;
+            min-width: 150px !important;
+            min-height: 30px;
             margin: 0 auto;
             border: 0.1vh solid #000;
             background: rgba(255, 255, 255, 0.2);
@@ -254,7 +264,18 @@ body {
             -webkit-border-radius: 100px; }
             body .backgroundShade #mainSection #upperMain #upperMainContainer .abcRioButton .abcRioButtonContentWrapper {
               height: auto !important;
-              display: inline-block; }
+              justify-self: center;
+              align-self: center;
+              display: grid;
+              grid-template-columns: 0.5fr 1fr;
+              grid-template-rows: 1fr;
+              grid-template-areas: "abcRioButtonIcon abcRioButtonContents"; }
+              body .backgroundShade #mainSection #upperMain #upperMainContainer .abcRioButton .abcRioButtonContentWrapper .abcRioButtonIcon {
+                grid-area: abcRioButtonIcon; }
+              body .backgroundShade #mainSection #upperMain #upperMainContainer .abcRioButton .abcRioButtonContentWrapper .abcRioButtonContents {
+                grid-area: abcRioButtonContents;
+                font-size: 2vh !important;
+                color: rgba(255, 255, 255, 0.6); }
       body .backgroundShade #mainSection #lowerMain {
         grid-area: lowerMain;
         display: grid;
@@ -282,3 +303,53 @@ body {
             grid-area: icon;
             transition: color 1s ease-in-out;
             font-size: 5vh; }
+
+@media only screen and (max-width: 900px) {
+  body {
+    min-height: 100vh;
+    overflow: scroll; }
+    body .backgroundShade {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 10fr;
+      grid-template-areas: "header" "mainSection"; }
+      body .backgroundShade #header {
+        grid-template-columns: 10px 1fr 10px;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: ". logoPixprience ." ". menuBtn ."; }
+        body .backgroundShade #header #logoPixprience {
+          grid-area: logoPixprience; }
+          body .backgroundShade #header #logoPixprience .logo {
+            width: 80vw;
+            animation: moveSVGMobile 4s ease-in-out 6s forwards; }
+      body .backgroundShade #mainSection {
+        grid-template-columns: 10px 1fr 10px;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: ". upperMain ." ". lowerMain ."; }
+        body .backgroundShade #mainSection #upperMain {
+          grid-template-columns: 10px 1fr 10px;
+          grid-template-rows: 1fr;
+          grid-template-areas: ". upperMainContainer ."; }
+          body .backgroundShade #mainSection #upperMain #upperMainContainer {
+            grid-template-columns: 1fr;
+            grid-template-rows: 2fr 1fr;
+            grid-template-areas: "slogan" "abcRioButton"; }
+            body .backgroundShade #mainSection #upperMain #upperMainContainer .slogan {
+              font-size: 4vh; }
+            body .backgroundShade #mainSection #upperMain #upperMainContainer .abcRioButton .abcRioButtonContentWrapper {
+              grid-template-columns: 0.5fr 1fr;
+              grid-template-rows: 1fr;
+              grid-template-areas: "abcRioButtonIcon abcRioButtonContents"; }
+        body .backgroundShade #mainSection #lowerMain {
+          grid-template-columns: 10px 1fr 10px;
+          grid-template-rows: 1fr;
+          grid-template-areas: ". lowerMainContainer ."; }
+          body .backgroundShade #mainSection #lowerMain #lowerMainContainer {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 0.5fr;
+            grid-template-areas: "watchVideo watchVideo watchVideo" ". icon .";
+            position: relative; }
+            body .backgroundShade #mainSection #lowerMain #lowerMainContainer #watchVideo {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%); } }
