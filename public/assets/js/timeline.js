@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-  function first() {
-    console.log("First is Running");
+  $('#imageUploadModal').modal();
 
+  function scrollEvent() {
+    console.log("Scroll Event Function is Running");
 
-    $('#imageUploadModal').modal();
     // define variables
     var items = document.querySelectorAll(".timeline ul li");
 
@@ -42,11 +42,11 @@ $(document).ready(function() {
     window.addEventListener("resize", callbackFunc);
     window.addEventListener("scroll", callbackFunc);
 
-  }; // End of first
+  }; // End of scrollEvent
 
 
-  function second() {
-    console.log("Second is Running");
+  function timeline() {
+    console.log("Timeline Function is Running");
     // Retrive sessionID Result From sessionStorage and store it in an Object
     let sessionIdObject = {
       sessionID: sessionStorage.getItem("sessionID")
@@ -101,16 +101,37 @@ $(document).ready(function() {
                 for ( var i = 0; i < imageObject.length; i ++){
                   let currentObject = imageObject[i];
                   console.log("Current Object is" + JSON.stringify(currentObject));
-                  let displayedDiv = $("<li><div><time>"+ currentObject.createdAt + "</time>"+"<img src= \'" + currentObject.image_link+ "\' alt=\'Image' width=\'100%\' height=\'100\'/>" + "<p> Notes: "+ currentObject.notes + "Ratings " + currentObject.ratings + "</p></div></li>");
+
+                  // Converting Database Date Format into Regular Date and Time
+                  var objectDate = currentObject.createdAt;
+                  console.log("Trimmed Object is " + trimedObjectDate);
+                  var trimedObjectDate = objectDate.substring(0, objectDate.length - 8)
+                  var objectDateArray = trimedObjectDate.split("T");
+                  console.log("Trimmed Object Array is " + objectDateArray);
+                  var trimmedDate = objectDateArray[0];
+                  var trimmedTime = objectDateArray[1];
+
+
+                  let displayedDiv = $("<li><div><h5 style = 'text-align: center'>" + currentObject.title + "</h5><img class=\'uploadedImages\' src= \'" + currentObject.image_link + "\' alt=\'Image' width=\'100%\' height=\'100\'/>" + " <p class=\'ratingStars" + i + "\'\>Ratings: </p> <br>"+  "<time> Date: "+ trimmedDate + "<br> Time: " + trimmedTime + " hrs </time>" + "<p> Notes: "+ currentObject.notes + "<br>" + "</p></div></li>");
+
+                  // Generate Code to Append Star Ratings
+                  let checkedStars = currentObject.rating;
+                  let uncheckedStars = 5 - checkedStars;
+
                   $(".ulTimeline").append(displayedDiv);
-                  console.log("I is "+i);
-                  first();
-                }
-                 // innerObject in imageObject){
-                //   let currentObject = imageObject[innerObject]
-                //   let displayedDiv = $("<li><div><time>"+ currentObject.time + "<time>"+"<img src= \'" + currentObject.imageLink+ "\' alt=\'Image' width=\'100%\' height=\'100\'/>" + currentObject.notes + currentObject.ratings + "</div></li>");
-                //   $(".ulTimeline").append(displayedDiv);
-                // } // End of for Loop
+
+                  for (var j = 0; j < checkedStars; j++){
+                    $(".ratingStars"+i).append("<i class=\'fa fa-star\' style=\'color:orange;\'></i>")
+                  }
+
+                  for (var y = 0; y < uncheckedStars; y++){
+                    $(".ratingStars"+i).append("<i class=\'fa fa-star\' style=\'color:grey;\'></i>")
+                  }
+
+                  // End of Appending Stars
+                  // Execute Scroll Event
+                  scrollEvent();
+                } // End of For Loop
             }); // End of Image Response
           }); // End of Image Post Request
         }); // End of ID Response
@@ -120,7 +141,7 @@ $(document).ready(function() {
       }
 
     }); // End of ID Post Request
-  }; // End of Function second
+  }; // End of Function Main Timeline Function
 
   // Changes the main page background. 8 images every 5 seconds
   function run(interval, frames) {
@@ -137,7 +158,7 @@ $(document).ready(function() {
 
   run(20000, 4); //milliseconds, frames
 
-  second();
+  timeline();
 
 
 });

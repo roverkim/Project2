@@ -1,9 +1,14 @@
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    display: none;
 }
 
 
@@ -48,14 +53,21 @@ body {
 }  /* INTRO SECTION
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+
+
 .intro {
   background: rgba(109, 51, 255, 0.3);
-  padding: 100px 0;
+  padding-top: 100px;
   height: 20vh;
+  position: relative;
+  /* display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 10fr;
+  grid-template-areas: "header" "mainSection"; */
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
@@ -71,6 +83,8 @@ body {
 
 h1 {
   font-size: 2.5rem;
+  padding: 50px;
+  text-align: center;
 }
 
 img {
@@ -89,6 +103,20 @@ img {
     max-height: 220px
 }
 
+.uploadedImages{
+  width: 100%;
+  height: auto;
+}
+
+/* Upload Wrapper*/
+.intro .uploadWrapper{
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  right:20px;
+
+}
+
 /* Upload Btn */
 #uploadBtn{
   background: rgba(0,0,0,0);
@@ -96,11 +124,18 @@ img {
 }
 
 
+
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.timeline ul {
+.timeline{
   background: rgba(0,0,0,0.8);
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+
+.timeline ul {
   padding: 50px 0;
 }
 
@@ -228,6 +263,26 @@ div {
 
   object-fit: cover;
 }
+
+
+/* Upload Image Modal Edits */
+.modal-overlay {
+  width: 100% !important;
+  background: rgba(255,255,255,0.5);
+}
+
+.modal{
+  height: auto;
+  width: auto;
+}
+
+#rating{
+  margin: 30px 0 50px 0;
+}
+
+
+
+
 
 /* GENERAL MEDIA QUERIES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

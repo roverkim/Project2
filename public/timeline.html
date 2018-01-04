@@ -25,6 +25,8 @@
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous">
   </script>
+  <!-- Bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
 
 </head>
@@ -40,33 +42,24 @@
 
 <body class="animated zoomIn delay-2" id ="bg1">
   <section class="intro">
-    <div>
-      <button class="modal-trigger" id="uploadBtn" href="#imageUploadModal"><i class="material-icons medium">cloud_upload</i></button>
+      <div class="uploadWrapper">
+        <button class="modal-trigger" id="uploadBtn" href="#imageUploadModal"><i class="material-icons medium">cloud_upload</i></button>
+      </div>
+    <div class="container animated bounceInDown delay-3">
+      <img src="" class="user">
     </div>
-  <div class="container animated bounceInDown delay-3">
-    <img src="" class="user">
-    <h1>Your Timeline &darr;</h1>
-  </div>
-</section>
+  </section>
 
   <section class="timeline">
+    <h1>Your Timeline &darr;</h1>
     <ul class="ulTimeline">
-          <li>
-            <!-- <div>
-
-            </div> -->
-            <!-- <div> -->
-              <!-- <time>2016</time>
-              <img id="myImg2" src="./assets/img/Main_Image_2.jpeg" alt="" title="Anthology 1 front" width="100%" height="100%" > -->
-              <!-- Proin quam velit, efficitur vel neque vitae, rhoncus commodo mi. Suspendisse finibus mauris et bibendum molestie. Aenean ex augue, varius et pulvinar in, pretium non nisi. -->
-            <!-- </div> -->
-      </li>
     </ul>
   </section>
 
+
 <!-- Modals -->
 
-<!-- Image Model -->
+<!-- Time Line Image Model -->
   <div id="myModal" class="modal">
     <select class="example">
        <option value="1">1</option>
@@ -81,19 +74,24 @@
     <div id="caption"><p></p></div>
   </div>
 
-  <!-- Drop Down Form Modal -->
-
-
+<!-- Drop Down Form Modal -->
   <!-- Modal Structure -->
   <div id="imageUploadModal" class="modal imageUploadModal green-text">
 
     <div class="modal-content">
+      <form class="col s12">
+        <div id="rating" class = "row">
+          <select id="example" class = "col s12">
+           <option value="1">1</option>
+           <option value="2">2</option>
+           <option value="3">3</option>
+           <option value="4">4</option>
+           <option value="5">5</option>
+          </select>
+        </div>
 
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-
-          <div class="image-to-show col s6">
+        <div class="row">
+          <div class="image-to-show col s6" style = "width: 100%;">
             <img id="image-preview" src="http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder.png" style="max-width:310px; max-height:310px;"  alt="broken">
 
              <script type="text/javascript">
@@ -101,19 +99,6 @@
                   $("#rating").show("slow");
                 });
               </script>
-
-            <div id="rating" style="display: none">
-              <select id="example">
-               <option value="1">1</option>
-               <option value="2">2</option>
-               <option value="3">3</option>
-               <option value="4">4</option>
-               <option value="5">5</option>
-              </select>
-            </div>
-
-            <div id="SubmitOK">Submit</div>
-
           </div>
 
           <!-- Image Upload -->
@@ -123,47 +108,37 @@
             </label>
             <input id="file-input" type="file"  />
           </div>
-
-         <!--  <div class="input-field col s12">
-            <i class="material-icons prefix">Notes</i>
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <! <label for="textarea1">Textarea</label> -->
-         <!--  </div>  -->
-
           <!-- Image Field -->
+
+          <!-- Title Input Field -->
+          <div class="input-field col s12" style="text-align:left;">
+            <i class="material-icons prefix">title</i>
+            <input id="imageUploadTitles" type="text" required>
+          </div>
+
           <!-- Notes Input Field -->
-          <div class="input-field col s12">
+          <div class="input-field col s12" style="text-align:left;">
             <i class="material-icons prefix">Notes</i>
-            <input id="icon_telephone" type="tel" class="validate">
-            <!-- <label for="icon_telephone">Telephone</label> -->
+            <input id="uploadNotes" type="text">
           </div>
           <!-- Favorites Field -->
-          <!-- Location Field -->
           </div>
         </form>
       </div>
-    </div>
+
+      <div class="modal-footer" style = "position: absolute; bottom: 0px;">
+        <div id="SubmitOK" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</div>
+      </div>
   </div>
+  <!-- End of Image Upload Model -->
 
 <!-- Scripts -->
 
-
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.1/jquery.barrating.min.js">
-</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.1/jquery.barrating.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-
-<script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js">
-</script>
-
-
-<script type="text/javascript" src="assets/js/firebaseConfig.js">
-</script>
-
-<script type="text/javascript" src="assets/js/firebase.js">
-</script>
-
-
+<script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+<script type="text/javascript" src="assets/js/firebaseConfig.js"></script>
+<script type="text/javascript" src="assets/js/firebase.js"></script>
 
 
 <script type="text/javascript">
@@ -178,14 +153,9 @@
   }
 </script>
 
-<script type="text/javascript" src="assets/js/timeline.js">
-</script>
-
-<script type="text/javascript" src="assets/js/modal.js">
-</script>
-
-<script type="text/javascript" src="assets/materialize/js/materialize.min.js">
-</script>
+<script type="text/javascript" src="assets/js/timeline.js"></script>
+<script type="text/javascript" src="assets/js/modal.js"></script>
+<script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
 
 <script type="text/javascript">
   $(function() {

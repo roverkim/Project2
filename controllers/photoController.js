@@ -17,7 +17,8 @@ module.exports = function(app) {
     db.user_image.findAll({
       where: {
         user_id: userId.userID
-      }
+      },
+     order: [['updatedAt', 'DESC']]
     }).then(function(data){
       console.log("returns"+ JSON.stringify(data));
       console.log("User Photos Sucessfully Found");
@@ -32,15 +33,17 @@ module.exports = function(app) {
     //Parse data into variables
     var pics = req.body;
     //creates a row in the DB
+
     db.user_image.create({
         user_id: pics.user_id,
+        title: pics.title,
         image_link: pics.image_link,
         rating: pics.rating,
         notes: pics.notes,
     }).then(function(data){
       console.log("returns "+ data);
       console.log("User Photo Sucessfully Added to Database");
-      res.send('confirmed');
+      res.json(data);
     });
 
   });

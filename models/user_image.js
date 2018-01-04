@@ -13,6 +13,9 @@ module.exports = function(sequelize, DataTypes) {
     image_link: {
       type: DataTypes.TEXT
     },
+    title: {
+      type: DataTypes.TEXT
+    },
 
     rating: {
       type: DataTypes.INTEGER ,

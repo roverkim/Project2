@@ -33,10 +33,12 @@ function uploadToFirebase(files) {
             var imageSubmitObject = {
               user_id: sessionStorage.getItem("userID"),
               image_link: url,
+              title: $("#imageUploadTitles").val(),
               rating: $(".br-current-rating").text(),
-              notes:  $("#icon_telephone").val()
+              notes:  $("#uploadNotes").val()
             };
 
+            console.log("Image Object Is" + JSON.stringify(imageSubmitObject));
             // console.log("Image Object is" + JSON.stringify(imageSubmitObject));
 
             fetch("/api/upload", {
@@ -49,13 +51,16 @@ function uploadToFirebase(files) {
 
               if (res.ok) {
                 res.json().then(function(message) {
+                  console.log(JSON.stringify(message));
                   console.log("Image Sucessfully Stored in Database");
+                  location.reload();
                 });
 
               } else {
-                console.log("error is "+ res.json().then(function(error){
-                  console.log("Error is "+ error);
-                }));
+                // console.log("error is "+ res.json().then(function(error){
+                //   console.log("Error is "+ error);
+                //   alert("Image Upload Failed");
+                // }));
 
                 console.log("Upload Failed");
 
