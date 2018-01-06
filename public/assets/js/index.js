@@ -19,7 +19,7 @@ $(document).ready(function() {
       var swap = window.setInterval(func, interval);
   }
 
-  run(20000, 9); //milliseconds, frames
-  
+  run(10000, 8); //milliseconds, frames
+
 
 });
