@@ -40,6 +40,8 @@ module.exports = function(app) {
         image_link: pics.image_link,
         rating: pics.rating,
         notes: pics.notes,
+        latitude: pics.latitude,
+        longtitude: pics.longtitude
     }).then(function(data){
       console.log("returns "+ data);
       console.log("User Photo Sucessfully Added to Database");

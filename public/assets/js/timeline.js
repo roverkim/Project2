@@ -111,8 +111,8 @@ $(document).ready(function() {
                   var trimmedDate = objectDateArray[0];
                   var trimmedTime = objectDateArray[1];
 
-
-                  let displayedDiv = $("<li><div><h5 style = 'text-align: center'>" + currentObject.title + "</h5><img class=\'uploadedImages\' src= \'" + currentObject.image_link + "\' alt=\'Image' width=\'100%\' height=\'100\'/>" + " <p class=\'ratingStars" + i + "\'\>Ratings: </p> <br>"+  "<time> Date: "+ trimmedDate + "<br> Time: " + trimmedTime + " hrs </time>" + "<p> Notes: "+ currentObject.notes + "<br>" + "</p></div></li>");
+                  //  Creating the Divs that Display Each Image
+                  let displayedDiv = $("<li><div><h5 style = 'text-align: center'>" + currentObject.title + "</h5><img class=\'uploadedImages\' src= \'" + currentObject.image_link + "\' alt=\'Image' width=\'100%\' height=\'100\' id=\'image" + i + "\' data-latitude=\'" + currentObject.latitude + "\' data-longitude=\'"+currentObject.longtitude+ "\'"+"/><p class=\'ratingStars" + i + "\'\>Ratings: </p> <br>"+ "<time> Date: "+ trimmedDate + "<br> Time: " + trimmedTime + " hrs </time>" + "<p> Notes: "+ currentObject.notes + "<br></p></div></li>");
 
                   // Generate Code to Append Star Ratings
                   let checkedStars = currentObject.rating;
@@ -127,6 +127,8 @@ $(document).ready(function() {
                   for (var y = 0; y < uncheckedStars; y++){
                     $(".ratingStars"+i).append("<i class=\'fa fa-star\' style=\'color:grey;\'></i>")
                   }
+
+
 
                   // End of Appending Stars
                   // Execute Scroll Event

@@ -2,11 +2,9 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
   <title>Timeline</title>
-
-  <!-- Stylesheets -->
+      <!-- Stylesheets -->
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.1/themes/fontawesome-stars.min.css">
@@ -19,26 +17,30 @@
   <!-- Modal CSS -->
   <link rel="stylesheet" href="assets/css/modal.css">
 
-  <!-- Scripts -->
+    <!-- Scripts -->
   <!-- jQuery script -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous">
-  </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.1/jquery.barrating.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
   <!-- Bootstrap -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <!-- Retrieve Photo Geodata -->
+  <script src="assets/exif-js/exif.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJQ__z06-Y3H9TYepxUNOicjA-CEwGJsw&libraries=places&callback=initMap" async defer></script>
+  <!-- Firebase -->
+  <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 
+  <script>
+  // Redirects TimeLine back to Login Page if User is not Signed In.
+    var userID = sessionStorage.getItem("sessionID");
+    if(userID === null){
+      console.log("Redirecting because");
+      window.location.replace("/");
+    }
+  </script>
 
 </head>
-
-<script>
-// Redirects TimeLine back to Login Page if User is not Signed In.
-  var userID = sessionStorage.getItem("sessionID");
-  if(userID === null){
-    console.log("Redirecting because");
-    window.location.replace("/");
-  }
-</script>
 
 <body class="animated zoomIn delay-2" id ="bg1">
   <section class="intro">
@@ -61,17 +63,12 @@
 
 <!-- Time Line Image Model -->
   <div id="myModal" class="modal">
-    <select class="example">
-       <option value="1">1</option>
-       <option value="2">2</option>
-       <option value="3">3</option>
-       <option value="4">4</option>
-       <option value="5">5</option>
-    </select>
-
+    <div id="map" class="col s10 offset-s1"></div>
     <span class="close">&times;</span>
     <img class="modal-content" id="modalImg">
-    <div id="caption"><p></p></div>
+    <div id="caption">
+      <p></p>
+    </div>
   </div>
 
 <!-- Drop Down Form Modal -->
@@ -132,30 +129,23 @@
   </div>
   <!-- End of Image Upload Model -->
 
-<!-- Scripts -->
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.1/jquery.barrating.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+
+<!-- Custom Scripts  -->
 <script type="text/javascript" src="assets/js/firebaseConfig.js"></script>
 <script type="text/javascript" src="assets/js/firebase.js"></script>
+<script type="text/javascript" src="assets/js/timeline.js"></script>
+<script type="text/javascript" src="assets/js/modal.js"></script>
+<script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
 
 
 <script type="text/javascript">
   var input = document.getElementById('file-input');
-  input.onchange =
-  function(){
-    // console.log(this.files);
-    // console.log(uploadToFirebase);
-    // console.log(name);
-    // name();
+  input.onchange = function(){
     uploadToFirebase(this.files);
   }
 </script>
 
-<script type="text/javascript" src="assets/js/timeline.js"></script>
-<script type="text/javascript" src="assets/js/modal.js"></script>
-<script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
 
 <script type="text/javascript">
   $(function() {
@@ -163,6 +153,16 @@
       theme: 'fontawesome-stars'
     });
   });
+
+  // Add Google Map to modal
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 2,
+      center: new google.maps.LatLng(2.8,-187.3),
+      mapTypeId: 'terrain'
+    });
+
 </script>
 
 
