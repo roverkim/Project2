@@ -32,6 +32,15 @@
   <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 
   <script>
+    // Add Google Map to modal
+    var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 2,
+        center: new google.maps.LatLng(2.8,-187.3),
+        mapTypeId: 'terrain'
+      });
+    }
   // Redirects TimeLine back to Login Page if User is not Signed In.
     var userID = sessionStorage.getItem("sessionID");
     if(userID === null){
@@ -153,15 +162,6 @@
       theme: 'fontawesome-stars'
     });
   });
-
-  // Add Google Map to modal
-  var map;
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 2,
-      center: new google.maps.LatLng(2.8,-187.3),
-      mapTypeId: 'terrain'
-    });
 
 </script>
 

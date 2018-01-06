@@ -45,8 +45,8 @@ function uploadToFirebase(files) {
               title: $("#imageUploadTitles").val(),
               rating: $(".br-current-rating").text(),
               notes: $("#uploadNotes").val(),
-              latitude: latitude,
-              longtitude: longtitude
+              latitude: null,
+              longtitude: null
             };
 
 
