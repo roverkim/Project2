@@ -61,7 +61,11 @@ Now go to your browser, type in https://localhost:8080 and start uploading photo
 5. Extraction of more data from photos using google vision 
 6. Allow users to take photos from the mobile site instead of ruploading
 
-
+## PIX!
+(readme_files/1.jpg)
+(readme_files/2.jpg)
+(readme_files/3.jpg)
+(readme_files/4.jpg)
 
 ## Built by: Codevengers;
 
