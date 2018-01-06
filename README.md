@@ -1,6 +1,7 @@
 ![Pixprience Logo](readme_files/PixprienceLogo.jpg)
 # Pixprience
 Pixprience is a web application that allows users to upload photos along with a note, rating, and title. By extracting the metadata from these photos we are able to visually contextualize these memories for the user by displaying them on either a timeline or a map. In the current version, the user signs in through google and is re-directed to their personal account, in future versions we will incorporate faceook and twitter authentication. 
+https://project2-staging.herokuapp.com/index.html
 
 ## Features
 
@@ -10,6 +11,19 @@ Current Supported Features Include:
 * View your photos on a timeline!
 * View your photos on a map!
 
+### Prerequisites
+
+You will need
+
+* [Node.js](https://nodejs.org/en/)
+* [MySQL](https://www.mysql.com/) 
+
+### Installing
+
+To get the modules you need, simply go to your command line and type in: 
+```
+npm install
+```
 
 
 ## Technologies
