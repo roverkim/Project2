@@ -112,7 +112,7 @@ $(document).ready(function() {
                   var trimmedTime = objectDateArray[1];
 
                   //  Creating the Divs that Display Each Image
-                  let displayedDiv = $("<li><div><h5 style = 'text-align: center'>" + currentObject.title + "</h5><img class=\'uploadedImages\' src= \'" + currentObject.image_link + "\' alt=\'Image' width=\'100%\' height=\'100\' id=\'image" + i + "\' data-latitude=\'" + currentObject.latitude + "\' data-longitude=\'"+currentObject.longtitude+ "\'"+"/><p class=\'ratingStars" + i + "\'\>Ratings: </p> <br>"+ "<time> Date: "+ trimmedDate + "<br> Time: " + trimmedTime + " hrs </time>" + "<p> Notes: "+ currentObject.notes + "<br></p></div></li>");
+                  let displayedDiv = $("<li><div><h5 style = 'text-align: center; padding-bottom: 10px;'>" + currentObject.title + "</h5><img class=\'uploadedImages\' src= \'" + currentObject.image_link + "\' alt=\'Image' width=\'100%\' height=\'100\' id=\'image" + i + "\' data-latitude=\'" + currentObject.latitude + "\' data-longitude=\'"+currentObject.longtitude+ "\'"+"/><p style='padding-top: 10px;' class=\'ratingStars" + i + "\'\>Ratings: </p> <br>"+ "<time> Date: "+ trimmedDate + "<br> Time: " + trimmedTime + " hrs </time>" + "<p> Notes: "+ currentObject.notes + "<br></p></div></li>");
 
                   // Generate Code to Append Star Ratings
                   let checkedStars = currentObject.rating;
@@ -158,7 +158,7 @@ $(document).ready(function() {
       var swap = window.setInterval(func, interval);
   }
 
-  run(20000, 4); //milliseconds, frames
+  run(15000, 4); //milliseconds, frames
 
   timeline();
 

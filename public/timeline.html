@@ -26,21 +26,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
   <!-- Retrieve Photo Geodata -->
   <script src="assets/exif-js/exif.js"></script>
-  <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJQ__z06-Y3H9TYepxUNOicjA-CEwGJsw&libraries=places&callback=initMap" async defer></script>
   <!-- Firebase -->
   <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 
   <script>
-    // Add Google Map to modal
-    var map;
-    function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 2,
-        center: new google.maps.LatLng(2.8,-187.3),
-        mapTypeId: 'terrain'
-      });
-    }
   // Redirects TimeLine back to Login Page if User is not Signed In.
     var userID = sessionStorage.getItem("sessionID");
     if(userID === null){
@@ -48,13 +37,15 @@
       window.location.replace("/");
     }
   </script>
-
+  <!-- Google Map -->
+  <script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJQ__z06-Y3H9TYepxUNOicjA-CEwGJsw&callback=initMap"></script>
 </head>
 
 <body class="animated zoomIn delay-2" id ="bg1">
   <section class="intro">
       <div class="uploadWrapper">
-        <button class="modal-trigger" id="uploadBtn" href="#imageUploadModal"><i class="material-icons medium">cloud_upload</i></button>
+        <button class="modal-trigger" id="uploadBtn" href="#imageUploadModal"><i class="material-icons medium cloudLoad">cloud_upload</i></button>
       </div>
     <div class="container animated bounceInDown delay-3">
       <img src="" class="user">
@@ -68,17 +59,13 @@
   </section>
 
 
-<!-- Modals -->
-
 <!-- Time Line Image Model -->
   <div id="myModal" class="modal">
-    <div id="map" class="col s10 offset-s1"></div>
+    <div id="map" style = "position: absolute;"></div>
     <span class="close">&times;</span>
-    <img class="modal-content" id="modalImg">
-    <div id="caption">
-      <p></p>
-    </div>
   </div>
+
+
 
 <!-- Drop Down Form Modal -->
   <!-- Modal Structure -->

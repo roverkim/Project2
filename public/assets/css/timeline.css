@@ -12,6 +12,7 @@
 }
 
 
+
 /* Background */
 
 #bg1 {
@@ -99,20 +100,20 @@ img {
 }
 
 img {
-    max-width: 500px;
-    max-height: 220px
+    /* max-width: 500px;
+    max-height: 220px */
 }
 
 .uploadedImages{
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 /* Upload Wrapper*/
 .intro .uploadWrapper{
   display: inline-block;
   position: absolute;
-  top: 10px;
+  top: 40px;
   right:20px;
 
 }
@@ -206,10 +207,14 @@ time {
 
 img {
   border-radius: 10px;
+  /* padding: 0;
+  margin: 0; */
 }
 
 div {
   border-radius: 10px;
+  /* padding: 0;
+  margin: 0; */
 }
 
 /* EFFECTS
@@ -282,7 +287,35 @@ div {
 }
 
 
+/* Map */
 
+#map{
+  width: 100%;
+  height: 90%;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0;
+  zoom: 0;
+  transform-style:preserve-3d;
+ transform:perspective(auto) translateZ(-30vw) scale(1.4);
+ perspective:1000;
+ background-color: blue;
+}
+
+#map div{
+  border-radius: 0;
+}
+
+
+/* Cloud Icon */
+.cloudLoad{
+  transition: color 0.5s ease;
+  color: white;
+}
+
+.cloudLoad:hover{
+  color: rgb(174, 249, 252);
+}
 
 
 /* GENERAL MEDIA QUERIES
@@ -300,7 +333,8 @@ div {
 }
 
 @media screen and (max-width: 600px) {
-    .timeline img ul li {
+    .timeline
+     ul li {
     margin-left: 20px;
   }
   .timeline ul li div img {
