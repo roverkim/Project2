@@ -23,7 +23,8 @@ Current Supported Features Include:
 | [CSS 3 Animations] | Front page animations |
 | [Sequilize] |  How we create/manipulate/query data models in mySQL through javascript! | 
 | [SVG] | Our Logo! |
-| [Jquery] | JavaScript Magic   | 
+| [Jquery] | JavaScript Magic| 
+|[SAS]| css pre-process|
 
 ## Future Updates
 
