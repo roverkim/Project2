@@ -26,17 +26,17 @@ If you would like to run this application locally, go to command line and type i
 git clone https://github.com/Codevengers/Project2.git
 ```
 
-To get the modules you need, simply go to your command line and type in: 
+You will need to install the modules you need. Simply go to your command line and type in: 
 ```
 npm install
 ```
-To start the app just go to the cloned project and type:
+To start the app from inside your cloned project, type:
 
 ```
 node server.js
 ```
 
-and then go to https://localhost:8080 :
+Now go to your browser, type in https://localhost:8080 and start uploading photos!! 
 
 ## Technologies
 
