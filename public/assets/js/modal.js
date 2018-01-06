@@ -8,10 +8,27 @@ var img = $('#myImg');
 var modalImg = $("#modalImg")
 var captionText = $("#caption > p");
 
+// Add Google Map to modal
+function initMap() {
+		map = new google.maps.Map(
+				document.getElementById("map"),
+				{
+						center: {
+								lat: $(this).data("latitude"),
+								lng: $(this).data("longtitude")
+						},
+						zoom: 11
+		});
+}
+
+
 $('section.timeline').on('click','img',function(){
 	modal.css("display","block");
 	// modal.style.display = "block";
 	var source = $(this).attr("src");
+
+	var currentLatitude = $(this).data("latitude");
+	var currentLongitude = $(this).data("longtitude");
 
     modalImg.attr("src",source)
 
@@ -19,6 +36,8 @@ $('section.timeline').on('click','img',function(){
 
     captionText.text(caption);
     // captionText.innerHTML = this.alt;
+
+
 });
 
 // Get the <span> element that closes the modal

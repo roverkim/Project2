@@ -5651,10 +5651,8 @@ button.btn-floating {
   overflow-y: auto;
   border-radius: 2px;
   will-change: top, opacity;
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
+  justify-self: center;
+  align-self: center;
   text-align: center;
 }
 

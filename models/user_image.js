@@ -25,6 +25,16 @@ module.exports = function(sequelize, DataTypes) {
     notes: {
       type: DataTypes.TEXT
     },
+
+    latitude: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+
+    longtitude: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    }
   });
   return UserImage;
 };
