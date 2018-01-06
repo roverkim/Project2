@@ -62,10 +62,10 @@ Now go to your browser, type in https://localhost:8080 and start uploading photo
 6. Allow users to take photos from the mobile site instead of ruploading
 
 ## PIX!
-(readme_files/1.jpg)
-(readme_files/2.jpg)
-(readme_files/3.jpg)
-(readme_files/4.jpg)
+(readme_files/a.jpg)
+(readme_files/b.jpg)
+(readme_files/c.jpg)
+(readme_files/d.jpg)
 
 ## Built by: Codevengers;
 
