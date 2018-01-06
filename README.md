@@ -19,6 +19,11 @@ You will need
 * [MySQL](https://www.mysql.com/) 
 
 ### Installing
+To begin go to command line and type in:
+
+```
+git clone https://github.com/Codevengers/Project2.git
+```
 
 To get the modules you need, simply go to your command line and type in: 
 ```
