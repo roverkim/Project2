@@ -1,6 +1,6 @@
 ![Pixprience Logo](readme_files/PixprienceLogo.jpg)
 # Pixprience
-Pixprience is a web application that allows users to upload photos along with a note, rating, and title. These photos are visually contextualized on either a timeline or a map using the meta data from the photo. In the current version, the user signs in through google and is re-directed to their personal account, in future versions we will incorporate faceook and twitter authentication. 
+Pixprience is a web application that allows users to upload photos along with a note, rating, and title. By extracting the metadata from these photos we are able to visually contextualize these memories for the user by displaying them on either a timeline or a map. In the current version, the user signs in through google and is re-directed to their personal account, in future versions we will incorporate faceook and twitter authentication. 
 
 
 ## Technologies
