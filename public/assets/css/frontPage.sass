@@ -124,7 +124,7 @@ button
   left: 50%
 		width: 80vw
 	to
-  top: 5%
+  top: 15%
   left: 50%
 		width: 65vw
 
@@ -272,6 +272,10 @@ body
 					width: 100%
 					&:hover
 						color: white
+					.menuShow
+						visibility: hidden
+					.barshow
+						visibility: visible
 
 		#mainSection
 			grid-area: mainSection
@@ -358,7 +362,9 @@ body
 		.backgroundShade
 			@include grid($columns: 1fr, $rows: 1fr 10fr , $area:  "header" "mainSection")
 			#header
-				@include grid($columns:10px 1fr 10px, $rows: 1fr 1fr , $area: ". logoPixprience ."  ". menuBtn .")
+				@include grid($columns:10px 1fr 10px, $rows: 1fr 1fr , $area: "menuBtn menuBtn menuBtn "  ". logoPixprience .")
+				#menuBtn
+					background-color: rgba(255, 255, 255, 0.5)
 				#logoPixprience
 					grid-area: logoPixprience
 					.logo
@@ -367,7 +373,16 @@ body
 						#pixprienceSVG
 
 				#menuBtn
+					position: relative
+					border: none
+					background: rgba(0,0,0,0) !important
+					text-align: left
 					.menu
+						.menuShow
+							visibility: hidden
+						.barshow
+							visibility: visible
+							@include normal_Vertical_Horizontal_Center
 
 			#mainSection
 				@include grid($columns: 10px 1fr 10px, $rows: 1fr 1fr, $area: ". upperMain ." ". lowerMain .")

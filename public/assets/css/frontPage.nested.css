@@ -78,7 +78,7 @@ button {
     left: 50%;
     width: 80vw; }
   to {
-    top: 5%;
+    top: 15%;
     left: 50%;
     width: 65vw; } }
 
@@ -213,6 +213,10 @@ body {
           width: 100%; }
           body .backgroundShade #header #menuBtn .menu:hover {
             color: white; }
+          body .backgroundShade #header #menuBtn .menu .menuShow {
+            visibility: hidden; }
+          body .backgroundShade #header #menuBtn .menu .barshow {
+            visibility: visible; }
     body .backgroundShade #mainSection {
       grid-area: mainSection;
       display: grid;
@@ -308,12 +312,27 @@ body {
       body .backgroundShade #header {
         grid-template-columns: 10px 1fr 10px;
         grid-template-rows: 1fr 1fr;
-        grid-template-areas: ". logoPixprience ." ". menuBtn ."; }
+        grid-template-areas: "menuBtn menuBtn menuBtn " ". logoPixprience ."; }
+        body .backgroundShade #header #menuBtn {
+          background-color: rgba(255, 255, 255, 0.5); }
         body .backgroundShade #header #logoPixprience {
           grid-area: logoPixprience; }
           body .backgroundShade #header #logoPixprience .logo {
             width: 80vw;
             animation: moveSVGMobile 4s ease-in-out 6s forwards; }
+        body .backgroundShade #header #menuBtn {
+          position: relative;
+          border: none;
+          background: transparent !important;
+          text-align: left; }
+          body .backgroundShade #header #menuBtn .menu .menuShow {
+            visibility: hidden; }
+          body .backgroundShade #header #menuBtn .menu .barshow {
+            visibility: visible;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); }
       body .backgroundShade #mainSection {
         grid-template-columns: 10px 1fr 10px;
         grid-template-rows: 1fr 1fr;
