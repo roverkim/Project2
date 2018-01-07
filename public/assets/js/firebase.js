@@ -29,14 +29,28 @@ function uploadToFirebase(files) {
 
         // Get Latitude and Longitude of the Image
         EXIF.getData(file, function() {
+
+          // Extract Meta Data From Image
           var latitude =  EXIF.getTag(this, "GPSLatitude");
-          var longtitude = EXIF.getTag(this, "GPSLongitude");
+          var longitude = EXIF.getTag(this, "GPSLongitude");
+          var latitudeRef = EXIF.getTag(this, "GPSLatitudeRef");
+          var longitudeRef = EXIF.getTag(this, "GPSLongitudeRef");
 
-          var formattedLatitude;
+          // Format the Raw Long and Lat into Decimal Geo Coordinates
+          var formattedLatitude = parseFloat(latitude[0]) + (parseFloat(latitude[1])/ 60.00)+ (parseFloat(latitude[2])/3600.0);
+          var formattedLongitude = parseFloat(longitude[0]) + (parseFloat(longitude[1])/ 60.00)+ (parseFloat(longitude[2])/3600.0)
 
+          if(latitudeRef != "N" ){
 
-          console.log("Latitude is: " + latitude);
-          console.log("Longitude is:" + longtitude);
+            formattedLatitude = 0 - formattedLatitude;
+
+          } // End If
+
+          if(longitudeRef != "E"){
+
+            formattedLongitude = 0 - formattedLongitude;
+
+          } // End If 
 
           // Create Image Object to Send Data to the Back End
             var imageSubmitObject = {
@@ -45,10 +59,9 @@ function uploadToFirebase(files) {
               title: $("#imageUploadTitles").val(),
               rating: $(".br-current-rating").text(),
               notes: $("#uploadNotes").val(),
-              latitude: null,
-              longtitude: null
+              latitude: formattedLatitude,
+              longtitude: formattedLongitude
             };
-
 
 
           console.log("Image Object Is" + JSON.stringify(imageSubmitObject));
