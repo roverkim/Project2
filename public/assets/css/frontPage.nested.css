@@ -68,7 +68,7 @@ button {
     left: 50%;
     width: 50vw; }
   to {
-    top: 5%;
+    top: 10%;
     left: 15%;
     width: 25vw; } }
 
@@ -163,6 +163,7 @@ body {
   body .backgroundShade {
     background: rgba(255, 255, 255, 0.1);
     height: 100vh;
+    width: 100%;
     display: grid;
     position: relative;
     grid-template-columns: 1fr;
@@ -307,14 +308,15 @@ body {
     overflow: scroll; }
     body .backgroundShade {
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr 10fr;
+      grid-template-rows: 1fr 8fr;
       grid-template-areas: "header" "mainSection"; }
       body .backgroundShade #header {
-        grid-template-columns: 10px 1fr 10px;
+        grid-template-columns: 20px 1fr 10px;
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "menuBtn menuBtn menuBtn " ". logoPixprience ."; }
         body .backgroundShade #header #menuBtn {
-          background-color: rgba(255, 255, 255, 0.5); }
+          background-color: rgba(255, 255, 255, 0.5);
+          visibility: hidden; }
         body .backgroundShade #header #logoPixprience {
           grid-area: logoPixprience; }
           body .backgroundShade #header #logoPixprience .logo {
@@ -339,8 +341,8 @@ body {
         grid-template-areas: ". upperMain ." ". lowerMain ."; }
         body .backgroundShade #mainSection #upperMain {
           grid-template-columns: 10px 1fr 10px;
-          grid-template-rows: 1fr;
-          grid-template-areas: ". upperMainContainer ."; }
+          grid-template-rows: 1fr 1fr;
+          grid-template-areas: ". . ." ". upperMainContainer ."; }
           body .backgroundShade #mainSection #upperMain #upperMainContainer {
             grid-template-columns: 1fr;
             grid-template-rows: 2fr 1fr;
@@ -353,12 +355,12 @@ body {
               grid-template-areas: "abcRioButtonIcon abcRioButtonContents"; }
         body .backgroundShade #mainSection #lowerMain {
           grid-template-columns: 10px 1fr 10px;
-          grid-template-rows: 1fr;
-          grid-template-areas: ". lowerMainContainer ."; }
+          grid-template-rows: 1fr 1fr;
+          grid-template-areas: ". . ." ". lowerMainContainer ."; }
           body .backgroundShade #mainSection #lowerMain #lowerMainContainer {
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr 0.5fr;
-            grid-template-areas: "watchVideo watchVideo watchVideo" ". icon .";
+            grid-template-areas: "watchVideo watchVideo watchVideo" ". . icon";
             position: relative; }
             body .backgroundShade #mainSection #lowerMain #lowerMainContainer #watchVideo {
               position: absolute;

@@ -114,7 +114,7 @@ button
   left: 50%
 		width: 50vw
 	to
-  top: 5%
+  top: 10%
   left: 15%
 		width: 25vw
 
@@ -226,6 +226,7 @@ body
 	.backgroundShade
 		background: rgba(255,255,255,0.1)
 		height: 100vh
+		width: 100%
 		display: grid
 		position: relative
 		@include grid($columns: 1fr, $rows: 1fr 10fr , $area:  "header" "mainSection")
@@ -360,11 +361,12 @@ body
 		min-height: 100vh
 		overflow: scroll
 		.backgroundShade
-			@include grid($columns: 1fr, $rows: 1fr 10fr , $area:  "header" "mainSection")
+			@include grid($columns: 1fr, $rows: 1fr 8fr , $area:  "header" "mainSection")
 			#header
-				@include grid($columns:10px 1fr 10px, $rows: 1fr 1fr , $area: "menuBtn menuBtn menuBtn "  ". logoPixprience .")
+				@include grid($columns:20px 1fr 10px, $rows: 1fr 1fr , $area: "menuBtn menuBtn menuBtn "  ". logoPixprience .")
 				#menuBtn
 					background-color: rgba(255, 255, 255, 0.5)
+					visibility: hidden
 				#logoPixprience
 					grid-area: logoPixprience
 					.logo
@@ -387,7 +389,7 @@ body
 			#mainSection
 				@include grid($columns: 10px 1fr 10px, $rows: 1fr 1fr, $area: ". upperMain ." ". lowerMain .")
 				#upperMain
-					@include grid($columns:10px 1fr 10px, $rows: 1fr , $area:". upperMainContainer .")
+					@include grid($columns:10px 1fr 10px, $rows: 1fr 1fr , $area: ". . ." ". upperMainContainer .")
 					#upperMainContainer
 						@include grid($columns: 1fr, $rows: 2fr 1fr, $area: "slogan" "abcRioButton")
 						.slogan
@@ -399,9 +401,9 @@ body
 								.abcRioButtonContents
 
 				#lowerMain
-					@include grid($columns: 10px 1fr 10px, $rows: 1fr, $area: ". lowerMainContainer .")
+					@include grid($columns: 10px 1fr 10px, $rows: 1fr 1fr, $area: ". . ." ". lowerMainContainer .")
 					#lowerMainContainer
-						@include grid($columns: 1fr 1fr 1fr , $rows:1fr 0.5fr , $area: "watchVideo watchVideo watchVideo" ". icon .")
+						@include grid($columns: 1fr 1fr 1fr , $rows:1fr 0.5fr , $area: "watchVideo watchVideo watchVideo" ". . icon")
 						position: relative
 						#watchVideo
 							@include normal_Vertical_Horizontal_Center
