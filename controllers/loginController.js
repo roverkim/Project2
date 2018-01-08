@@ -1,3 +1,4 @@
+// Require Packages and Local Files
 var path = require("path");
 var connection = require('../config/connection.js');
 var Sequelize = require('sequelize');

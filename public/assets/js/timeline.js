@@ -44,16 +44,17 @@ $(document).ready(function() {
 
   }; // End of scrollEvent
 
-
+  // Function for Populating Timeline
   function timeline() {
+
     console.log("Timeline Function is Running");
+
     // Retrive sessionID Result From sessionStorage and store it in an Object
     let sessionIdObject = {
       sessionID: sessionStorage.getItem("sessionID")
     };
 
-
-    console.log("SessionID is" + JSON.stringify(sessionIdObject));
+    // console.log("SessionID is" + JSON.stringify(sessionIdObject));
 
     // Retrieve User ID from Database Using sessionID
     fetch("/api/ID", {
@@ -76,14 +77,14 @@ $(document).ready(function() {
             userID: userData.id
           }
 
-          // JQuery to Populate User Profile Picture on TimeLine
+          // JQuery to Populate User Profile Picture Using Google Profile Image on TimeLine
           $(".user").attr("src", userData.profile_picture);
 
           // Store Unique User ID in Session Storage for Future Use.
           sessionStorage.setItem("userID", JSON.stringify(userData.id));
-          console.log("Storing userID in Session Storage: " + userData.id);
+          // console.log("Storing userID in Session Storage: " + userData.id);
 
-          // Post the User ID Object back to the Backend. User ID to be used to Query Image Table
+          // Post the User ID Object back to the Backend. User ID to be used to Query Image Table. Images Stored in an Object is Returned from the Post Request
           fetch("/api/images", {
             method : 'POST',
             headers: {
@@ -93,10 +94,9 @@ $(document).ready(function() {
           }).then((res)=>{
             res.json().then(function(data){
               console.log("Images Received" + data);
-              // Receive JSON Object
-                console.log("Received is " + data);
                 // Asign data to imageObject
                 let imageObject = data;
+
                 // Loop through the imageObject to extract image Link and Display to Html
                 for ( var i = 0; i < imageObject.length; i ++){
                   let currentObject = imageObject[i];
@@ -111,7 +111,7 @@ $(document).ready(function() {
                   var trimmedDate = objectDateArray[0];
                   var trimmedTime = objectDateArray[1];
 
-                  //  Creating the Divs that Display Each Image
+                  //  Creating the Divs that Display Each Image. Geolocation for Image Stored in Data Attribute of the Image Tag.
                   let displayedDiv = $("<li><div><h5 style = 'text-align: center; padding-bottom: 10px;'>" + currentObject.title + "</h5><img class=\'uploadedImages\' src= \'" + currentObject.image_link + "\' alt=\'Image' width=\'100%\' height=\'100\' id=\'image" + i + "\' data-latitude=\'" + currentObject.latitude + "\' data-longitude=\'"+currentObject.longtitude+ "\'"+"/><p style='padding-top: 10px;' class=\'ratingStars" + i + "\'\>Ratings: </p> <br>"+ "<time> Date: "+ trimmedDate + "<br> Time: " + trimmedTime + " hrs </time>" + "<p> Notes: "+ currentObject.notes + "<br></p></div></li>");
 
                   // Generate Code to Append Star Ratings
@@ -120,17 +120,16 @@ $(document).ready(function() {
 
                   $(".ulTimeline").append(displayedDiv);
 
+                  // Append Orange Stars
                   for (var j = 0; j < checkedStars; j++){
                     $(".ratingStars"+i).append("<i class=\'fa fa-star\' style=\'color:orange;\'></i>")
                   }
 
+                  // Append Grey Stars
                   for (var y = 0; y < uncheckedStars; y++){
                     $(".ratingStars"+i).append("<i class=\'fa fa-star\' style=\'color:grey;\'></i>")
                   }
 
-
-
-                  // End of Appending Stars
                   // Execute Scroll Event
                   scrollEvent();
                 } // End of For Loop
@@ -160,7 +159,7 @@ $(document).ready(function() {
 
   run(15000, 4); //milliseconds, frames
 
+  // Execute Timeline Function
   timeline();
-
 
 });

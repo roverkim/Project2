@@ -5646,11 +5646,11 @@ button.btn-floating {
   padding: 0 !important;
   height: auto;
   max-height: 55vh;
-  width: 40% !important;
+  width: 40%;
   margin: auto;
   overflow-y: auto;
   border-radius: 2px;
-  will-change: top, opacity;
+  will-change: top opacity;
   justify-self: center;
   align-self: center;
   text-align: center;
@@ -5658,7 +5658,8 @@ button.btn-floating {
 
 @media only screen and (max-width: 992px) {
   .modal {
-    width: 80%;
+    width: 100%;
+
   }
 }
 

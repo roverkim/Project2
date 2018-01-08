@@ -1,8 +1,10 @@
 function uploadToFirebase(files) {
 
+  // Store Uploaded Image in variable file
   var file = files[0];
-  // console.log(file);
+
   var fileName = file.name;
+
   if (file) {
 
     var rootRef = firebase.storage().ref();
@@ -13,21 +15,23 @@ function uploadToFirebase(files) {
     }).catch(err => console.log(err));
 
     fileRef.getDownloadURL().then((url) => {
-      //Getting the download url.
+
+      //Getting the download url from Firebase
+
       console.log(`Download Url : ${url}`);
 
-
+      // Set the Source of the Image Preview to be the Link from Firebase
       var img = document.getElementById('image-preview');
       img.src = url;
-      console.log("Type of Url " + typeof(url));
 
+      // console.log("Type of Url " + typeof(url));
 
       // Submit Upload Button
       $("#SubmitOK").on("click", function() {
 
-        console.log("User ID is " + sessionStorage.getItem("userID"));
+        // console.log("User ID is " + sessionStorage.getItem("userID"));
 
-        // Get Latitude and Longitude of the Image
+        // Retrieve Latitude and Longitude of the Image Uploaded.
         EXIF.getData(file, function() {
 
           // Extract Meta Data From Image
@@ -50,7 +54,7 @@ function uploadToFirebase(files) {
 
             formattedLongitude = 0 - formattedLongitude;
 
-          } // End If 
+          } // End If
 
           // Create Image Object to Send Data to the Back End
             var imageSubmitObject = {
@@ -63,9 +67,7 @@ function uploadToFirebase(files) {
               longtitude: formattedLongitude
             };
 
-
-          console.log("Image Object Is" + JSON.stringify(imageSubmitObject));
-
+          // Send the Image Object to the Backend for Storage in DB Using Sequelize
           fetch("/api/upload", {
             method: 'POST',
             headers: {
@@ -76,8 +78,8 @@ function uploadToFirebase(files) {
 
             if (res.ok) {
               res.json().then(function(message) {
-                console.log(JSON.stringify(message));
                 console.log("Image Sucessfully Stored in Database");
+                // Refresh the Page When the Image is Sucessfully Uploaded to the Backend
                 location.reload();
               });
 
