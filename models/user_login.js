@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-
+  // Define User External Login Sequelize Modal
   var UserExternalLogin = sequelize.define("user_external_login", {
 
     id: {

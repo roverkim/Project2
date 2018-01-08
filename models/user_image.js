@@ -1,4 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
+  // Define Image Sequelize Modal
   var UserImage = sequelize.define("user_image", {
     id: {
       type: DataTypes.INTEGER ,
