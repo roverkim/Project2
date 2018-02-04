@@ -1,6 +1,5 @@
 // Require Packages and Local Files
 var path = require("path");
-var connection = require('../config/connection.js');
 var Sequelize = require('sequelize');
 
 // Require Sequelize Models
@@ -55,25 +54,11 @@ module.exports = function(app) {
     var user = req.body;
 
     //Store User Google Details in database if User does not Exists.
-    db.user_external_login.findCreateFind({
-      where: {
-        external_authentication_provider_id: user.externalAuthenticationProviderId,
-      },
-      defaults: {
-        id: null,
-        user_account_id: user.externalAuthenticationProviderId,
-        external_authentication_provider_id: user.externalAuthenticationProviderId,
-        external_user_id: user.externalAuthenticationProviderId,
-        name: user.name,
-        first_name: user.firstName,
-        last_name: user.lastName,
-        email: user.email,
-        login_name: null,
-        profile_picture: user.profilePicture
-
-      }
-    }).then(function(data){
-      console.log("returns "+ data);
+    db.user_external_login.destroy({where: {external_authentication_provider_id: 123456789}}
+).then(function(data){
+      console.log("Updated Data is 1 --------------------"+ data);
+      console.log("Updated Data is 2 --------------------------"+ JSON.stringify(data));
+      console.log("Login Found is " + data)
       // Sends Back Google User ID to the Login Page for Storage in Session Storage.
       console.log("User Data Sucessfully Added to Database");
       res.json(user.externalAuthenticationProviderId);
