@@ -3,7 +3,6 @@ $(document).ready(function() {
   $('#imageUploadModal').modal();
   $('#myModal').modal();
 
-
   function scrollEvent() {
     console.log("Scroll Event Function is Running");
 
@@ -88,53 +87,53 @@ $(document).ready(function() {
 
           // Post the User ID Object back to the Backend. User ID to be used to Query Image Table. Images Stored in an Object is Returned from the Post Request
           fetch("/api/images", {
-            method : 'POST',
+            method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify(userID)
-          }).then((res)=>{
-            res.json().then(function(data){
+          }).then((res) => {
+            res.json().then(function(data) {
               console.log("Images Received" + data);
-                // Asign data to imageObject
-                let imageObject = data;
+              // Asign data to imageObject
+              let imageObject = data;
 
-                // Loop through the imageObject to extract image Link and Display to Html
-                for ( var i = 0; i < imageObject.length; i ++){
-                  let currentObject = imageObject[i];
-                  console.log("Current Object is" + JSON.stringify(currentObject));
+              // Loop through the imageObject to extract image Link and Display to Html
+              for (var i = 0; i < imageObject.length; i++) {
+                let currentObject = imageObject[i];
+                console.log("Current Object is" + JSON.stringify(currentObject));
 
-                  // Converting Database Date Format into Regular Date and Time
-                  var objectDate = currentObject.createdAt;
-                  console.log("Trimmed Object is " + trimedObjectDate);
-                  var trimedObjectDate = objectDate.substring(0, objectDate.length - 8)
-                  var objectDateArray = trimedObjectDate.split("T");
-                  console.log("Trimmed Object Array is " + objectDateArray);
-                  var trimmedDate = objectDateArray[0];
-                  var trimmedTime = objectDateArray[1];
+                // Converting Database Date Format into Regular Date and Time
+                var objectDate = currentObject.createdAt;
+                console.log("Trimmed Object is " + trimedObjectDate);
+                var trimedObjectDate = objectDate.substring(0, objectDate.length - 8)
+                var objectDateArray = trimedObjectDate.split("T");
+                console.log("Trimmed Object Array is " + objectDateArray);
+                var trimmedDate = objectDateArray[0];
+                var trimmedTime = objectDateArray[1];
 
-                  //  Creating the Divs that Display Each Image. Geolocation for Image Stored in Data Attribute of the Image Tag.
-                  let displayedDiv = $("<li><div><h5 style = 'text-align: center; padding-bottom: 10px;'>" + currentObject.title + "</h5><img class=\'uploadedImages\' src= \'" + currentObject.image_link + "\' alt=\'Image' width=\'100%\' height=\'100\' id=\'image" + i + "\' data-latitude=\'" + currentObject.latitude + "\' data-longitude=\'"+currentObject.longtitude+ "\'"+"/><p style='padding-top: 10px;' class=\'ratingStars" + i + "\'\>Ratings: </p> <br>"+ "<time> Date: "+ trimmedDate + "<br> Time: " + trimmedTime + " hrs </time>" + "<p> Notes: "+ currentObject.notes + "<br></p></div></li>");
+                //  Creating the Divs that Display Each Image. Geolocation for Image Stored in Data Attribute of the Image Tag.
+                let displayedDiv = $("<li><div><h5 style = 'text-align: center; padding-bottom: 10px;'>" + currentObject.title + "</h5><img class=\'uploadedImages\' src= \'" + currentObject.image_link + "\' alt=\'Image' width=\'100%\' height=\'100\' id=\'image" + i + "\' data-latitude=\'" + currentObject.latitude + "\' data-longitude=\'" + currentObject.longtitude + "\'" + "/><p style='padding-top: 10px;' class=\'ratingStars" + i + "\'\>Ratings: </p> <br>" + "<time> Date: " + trimmedDate + "<br> Time: " + trimmedTime + " hrs </time>" + "<p> Notes: " + currentObject.notes + "<br></p></div></li>");
 
-                  // Generate Code to Append Star Ratings
-                  let checkedStars = currentObject.rating;
-                  let uncheckedStars = 5 - checkedStars;
+                // Generate Code to Append Star Ratings
+                let checkedStars = currentObject.rating;
+                let uncheckedStars = 5 - checkedStars;
 
-                  $(".ulTimeline").append(displayedDiv);
+                $(".ulTimeline").append(displayedDiv);
 
-                  // Append Orange Stars
-                  for (var j = 0; j < checkedStars; j++){
-                    $(".ratingStars"+i).append("<i class=\'fa fa-star\' style=\'color:orange;\'></i>")
-                  }
+                // Append Orange Stars
+                for (var j = 0; j < checkedStars; j++) {
+                  $(".ratingStars" + i).append("<i class=\'fa fa-star\' style=\'color:orange;\'></i>")
+                }
 
-                  // Append Grey Stars
-                  for (var y = 0; y < uncheckedStars; y++){
-                    $(".ratingStars"+i).append("<i class=\'fa fa-star\' style=\'color:grey;\'></i>")
-                  }
+                // Append Grey Stars
+                for (var y = 0; y < uncheckedStars; y++) {
+                  $(".ratingStars" + i).append("<i class=\'fa fa-star\' style=\'color:grey;\'></i>")
+                }
 
-                  // Execute Scroll Event
-                  scrollEvent();
-                } // End of For Loop
+                // Execute Scroll Event
+                scrollEvent();
+              } // End of For Loop
             }); // End of Image Response
           }); // End of Image Post Request
         }); // End of ID Response
@@ -148,15 +147,17 @@ $(document).ready(function() {
 
   // Changes the main page background. 8 images every 5 seconds
   function run(interval, frames) {
-      var int = 1;
+    var int = 1;
 
-      function func() {
-          document.body.id = "bg"+int;
-          int++;
-          if(int === frames) { int = 1; }
+    function func() {
+      document.body.id = "bg" + int;
+      int++;
+      if (int === frames) {
+        int = 1;
       }
+    }
 
-      var swap = window.setInterval(func, interval);
+    var swap = window.setInterval(func, interval);
   }
 
   run(15000, 4); //milliseconds, frames

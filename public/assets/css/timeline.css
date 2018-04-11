@@ -309,15 +309,28 @@ div {
 
 
 /* Cloud Icon */
-.cloudLoad{
+.cloud{
   transition: color 0.5s ease;
   color: white;
+  margin: 20px;
 }
 
-.cloudLoad:hover{
-  color: rgb(174, 249, 252);
+.cloud:hover{
+  color: orange;
 }
 
+
+/* Image Upload Modal */
+
+#imageUploadModal {
+  height: fit-content;
+  width: fit-content;
+  position: absolute;
+}
+
+#imageUploadModal .modal-content{
+  margin-bottom: 100px;
+}
 
 /* GENERAL MEDIA QUERIES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
