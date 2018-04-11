@@ -201,7 +201,10 @@ body {
         padding: 20px;
         padding-left: 40px;
         padding-right: 40px;
-        transition: background-color 1s ease-in-out; }
+        transition: background-color 1s ease-in-out;
+        z-index: 10000000000; }
+        body .backgroundShade #header #menuBtn #dropDownMenu a {
+          font-size: 0.8em; }
         body .backgroundShade #header #menuBtn:hover {
           background-color: rgba(255, 255, 255, 0.3); }
         body .backgroundShade #header #menuBtn .menu {
